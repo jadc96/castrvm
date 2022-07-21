@@ -1,5 +1,5 @@
-class RemoveDescriptionFromFurnitures < ActiveRecord::Migration[7.0]
+class RemoveDescriptionFromcastles < ActiveRecord::Migration[7.0]
   def change
-    remove_column :furnitures, :description
+    remove_column :castles, :description
   end
 end

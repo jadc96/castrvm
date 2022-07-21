@@ -1,6 +1,6 @@
 require "test_helper"
 
-class FurnitureTest < ActiveSupport::TestCase
+class castleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

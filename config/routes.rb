@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "dashboards#index"
 
-  resources :furnitures do
+  resources :castles do
     resources :bookings, only: :create do
       resources :payments, only: :new
     end
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: :show
 
-  get "/furnitures/user/:id", to: "furnitures#index_by_user", as: "user_index"
+  get "/castles/user/:id", to: "castles#index_by_user", as: "user_index"
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

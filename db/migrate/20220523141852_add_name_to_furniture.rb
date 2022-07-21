@@ -1,5 +1,5 @@
-class AddNameToFurniture < ActiveRecord::Migration[7.0]
+class AddNameTocastle < ActiveRecord::Migration[7.0]
   def change
-    add_column :furnitures, :name, :string
+    add_column :castles, :name, :string
   end
 end

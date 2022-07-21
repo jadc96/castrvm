@@ -1,26 +1,26 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :show
-  before_action :set_furniture, only: :create
+  before_action :set_castle, only: :create
 
   def show
     authorize @booking
-    @furniture = @booking.furniture
+    @castle = @booking.castle
     @session = Stripe::Checkout::Session.retrieve(@booking.checkout_session_id)
     @booking.update(status: "paid") if @session.payment_status == "paid"
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.furniture_id = @furniture.id
+    @booking.castle_id = @castle.id
     @booking.user_id = current_user.id
-    @booking.total_price = (@furniture.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 9
+    @booking.total_price = (@castle.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 9
     authorize @booking
 
     if @booking.save!
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
-          name: @furniture.id,
+          name: @castle.id,
           amount: @booking.total_price * 100,
           currency: 'eur',
           quantity: 1
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
       )
       @booking.update(checkout_session_id: session.id)
       @booking.update(status: "pending")
-      redirect_to new_furniture_booking_payment_path(@furniture.id, @booking.id)
+      redirect_to new_castle_booking_payment_path(@castle.id, @booking.id)
     else
       flash[:alert] = "Erreur, vérifiez les informations"
       render :new, status: :unprocessable_entity
@@ -51,8 +51,8 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:total_price, :start_date, :end_date)
   end
 
-  def set_furniture
-    @furniture = Furniture.find(params[:furniture_id])
+  def set_castle
+    @castle = castle.find(params[:castle_id])
   end
 
   def set_booking
