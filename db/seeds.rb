@@ -7,7 +7,7 @@ puts 'Creating seeds...'
 puts "Cleaning DB"
 
 Booking.destroy_all
-Furniture.destroy_all
+Castle.destroy_all
 User.destroy_all
 
 puts "DB cleaned"
@@ -94,9 +94,9 @@ User.create(
 
 puts 'Users created'
 
-puts 'Creating Furnitures'
+puts 'Creating castles'
 
-furnitures = [
+castles = [
   {
     description: "A clean look that’s easy to like and mix with other styles, either supporting a desk or standing alone. The back is finished so you can place it in the middle of the room – all sides are just as beautiful.",
     price_per_day: 2,
@@ -283,27 +283,27 @@ furnitures = [
   }
 ]
 
-furnitures.each do |furniture|
-  fur = Furniture.new(furniture)
-  file1 = { io: URI.open("https://source.unsplash.com/random/?chair"), filename: "furniture", content_type: "image/png" }
-  file2 = { io: URI.open("https://source.unsplash.com/random/?table"), filename: "furniture", content_type: "image/png" }
-  file3 = { io: URI.open("https://source.unsplash.com/random/?couch"), filename: "furniture", content_type: "image/png" }
+castles.each do |castle|
+  fur = Castle.new(castle)
+  file1 = { io: URI.open("https://source.unsplash.com/random/?chair"), filename: "castle", content_type: "image/png" }
+  file2 = { io: URI.open("https://source.unsplash.com/random/?table"), filename: "castle", content_type: "image/png" }
+  file3 = { io: URI.open("https://source.unsplash.com/random/?couch"), filename: "castle", content_type: "image/png" }
   fur.photos.attach([file1, file2, file3])
   fur.save!
   puts 'ok'
 end
 
-puts 'Furnitures created'
+puts 'castles created'
 
 start_date = Date.today - 1
 end_date = Date.today + 1
 
 Booking.create!(
-  total_price: Furniture.last.price_per_day * (end_date - start_date).to_i,
+  total_price: Castle.last.price_per_day * (end_date - start_date).to_i,
   start_date: start_date,
   end_date: end_date,
   user_id: User.last.id,
-  furniture_id: Furniture.last.id
+  castle_id: Castle.last.id
 )
 
 puts 'Seeds created!'

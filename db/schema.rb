@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_160506) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "furniture_id", null: false
+    t.bigint "castle_id", null: false
     t.datetime "start_date", precision: nil
     t.datetime "end_date", precision: nil
     t.integer "total_price"
@@ -52,11 +52,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_160506) do
     t.datetime "updated_at", null: false
     t.string "checkout_session_id"
     t.string "status"
-    t.index ["furniture_id"], name: "index_bookings_on_furniture_id"
+    t.index ["castle_id"], name: "index_bookings_on_castle_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "furnitures", force: :cascade do |t|
+  create_table "castles", force: :cascade do |t|
     t.integer "price_per_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_160506) do
     t.float "longitude"
     t.text "description"
     t.string "genre"
-    t.index ["user_id"], name: "index_furnitures_on_user_id"
+    t.index ["user_id"], name: "index_castles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_160506) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "furnitures"
+  add_foreign_key "bookings", "castles"
   add_foreign_key "bookings", "users"
-  add_foreign_key "furnitures", "users"
+  add_foreign_key "castles", "users"
 end

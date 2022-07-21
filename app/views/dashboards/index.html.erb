@@ -12,10 +12,10 @@
       <% if Booking.where(user_id: current_user.id).where(status: "pending") %>
         <% Booking.where(user_id: current_user.id).where(status: "pending").each do |b| %></p>
           <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
-            <%= cl_image_tag b.furniture.photos.first.key %>
+            <%= cl_image_tag b.castle.photos.first.key %>
             <div class="card-product-2-infos">
-              <h5><strong><%= link_to b.furniture.name, booking_path(b) %></strong></h5>
-              <p> Prix par jour : <%= b.furniture.price_per_day %> €</p>
+              <h5><strong><%= link_to b.castle.name, booking_path(b) %></strong></h5>
+              <p> Prix par jour : <%= b.castle.price_per_day %> €</p>
               <p> Prix total : <%= b.total_price %> €</p>
               <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
             </div>
@@ -33,10 +33,10 @@
       <% if Booking.where(user_id: current_user.id).where(status: "paid") %>
         <% Booking.where(user_id: current_user.id).where(status: "paid").each do |b| %></p>
           <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
-            <%= cl_image_tag b.furniture.photos.first.key %>
+            <%= cl_image_tag b.castle.photos.first.key %>
             <div class="card-product-2-infos">
-                <h5><strong><%= link_to b.furniture.name, booking_path(b) %></strong></h5>
-                <p> Prix par jour : <%= b.furniture.price_per_day %> €</p>
+                <h5><strong><%= link_to b.castle.name, booking_path(b) %></strong></h5>
+                <p> Prix par jour : <%= b.castle.price_per_day %> €</p>
                 <p> Prix total : <%= b.total_price %> €</p>
                 <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
             </div>

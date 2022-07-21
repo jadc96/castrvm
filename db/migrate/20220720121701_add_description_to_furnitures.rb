@@ -1,5 +1,5 @@
-class AddDescriptionToFurnitures < ActiveRecord::Migration[7.0]
+class AddDescriptionTocastles < ActiveRecord::Migration[7.0]
   def change
-    add_column :furnitures, :description, :text
+    add_column :castles, :description, :text
   end
 end
