@@ -1,0 +1,24 @@
+<h4 class="text-center">- Dernières annonces -</h4>
+
+<div class="d-flex flex-grow-1 flex-wrap">
+  <div class="row">
+    <% @furnitures.each do |furniture| %>
+      <div class="col-4">
+        <a href="<%= furniture_path(furniture.id)%>">
+          <div class="card-product">
+
+            <%= cl_image_tag furniture.photos.first.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-product-infos">
+              <div class="card-product-infos-left mt-3">
+                <h2><%=furniture.name.capitalize%></h2>
+              </div>
+              <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
+              <img src="<%= furniture.user.avatar %>" class="card-product-user avatar-bordered" />
+            </div>
+
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

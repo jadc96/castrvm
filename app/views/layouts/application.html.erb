@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FurnituresFinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <%= favicon_link_tag asset_path('home-1.png') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <%= render "shared/navbar" %>
+    <% if action_name == "home" %>
+      <%= render "shared/home-banner" %>
+    <% end %>
+    <% if action_name == "index" %>
+      <%= render "shared/icons-banner" %>
+    <% end %>
+    <div class="container">
+      <%= render "shared/flashes" %>
+      <%= yield %>
+    </div>
+    <% if action_name == "index" %>
+      <%= render "shared/link-to-map" %>
+    <% end %>
+    <% if action_name != "home" %>
+      <%= render "shared/footer" %>
+    <% end %>
+  </body>
+</html>

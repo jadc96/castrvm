@@ -1,0 +1,95 @@
+.card-product-2 {
+  overflow: hidden;
+  height: 250px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.card-product-2 img {
+  height: 100%;
+  width: 33%;
+  object-fit: cover;
+}
+
+.card-product-2 h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-2 p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-2 .card-product-2-infos {
+  padding: 16px;
+}
+
+.secondary-button-booking{
+  border: 1px solid rgb(225, 172, 59);
+  border-radius: 25px;
+  color: rgb(225, 172, 59);
+  text-align: center;
+  font-size: 16px;
+  padding: 12px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 9px;
+}
+
+.secondary-button-booking a{
+  text-decoration: none;
+  color: rgb(225, 172, 59);
+}
+
+.secondary-button-booking a:hover{
+  color: rgb(189, 157, 88);
+}
+
+#alert-pending {
+  color: rgb(197, 128, 0);
+}
+
+#alert-accepted {
+  color: green;
+}
+
+.card-product-2 {
+  border-radius: 4px;
+}
+
+.pending-status {
+  width: 110px;
+  padding: 5px 10px;
+  text-align: center;
+  color: rgb(128, 96, 0);
+  background-color: rgb(255,230, 153);
+  border-radius: 4px;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.accepted-status {
+  width: 110px;
+  padding: 5px 10px;
+  text-align: center;
+  color: rgb(0, 97, 0);
+  background-color: rgb(198, 239, 206);
+  border-radius: 4px;
+
+  & p {
+    margin: 0;
+  }
+}

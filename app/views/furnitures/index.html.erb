@@ -1,0 +1,40 @@
+<div class="see-all">
+  <% if policy(Furniture).new? %>
+    <%= link_to "+  nouvelle annonce", new_furniture_path, class: "btn-new-furniture"  %>
+  <% end %>
+
+  <% if params[:search].nil? %>
+    <h2 class="title-index">Toutes les annonces</h2>
+  <% else %>
+    <h2 class="title-index">Résultats pour '<%= params[:search] %>'</h2>
+  <% end %>
+</div>
+
+<div class="row">
+  <% @furnitures.each do |furniture| %>
+    <div class="col-4">
+
+      <a href="<%= furniture_path(furniture.id)%>">
+        <div class="card-product">
+          <%= cl_image_tag furniture.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+          <div class="card-product-infos">
+            <div class="card-product-infos-left mt-3">
+              <h2><%=furniture.name.capitalize%></h2>
+            </div>
+            <h2 class="card-product-pricing"><%= furniture.price_per_day %>€</h2>
+            <img src="<%= furniture.user.avatar %>" class="card-product-user avatar-bordered" />
+          </div>
+
+        </div>
+      </a>
+
+    </div>
+  <% end %>
+
+  <div style="width: 100%; height: 600px;" id="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>

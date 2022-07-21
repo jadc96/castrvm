@@ -1,0 +1,30 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border border-white d-flex justify-content-between p-3">
+    <%= link_to root_path, class: "navbar-brand" do %>
+    <img class="house" src="https://res.cloudinary.com/do9ctd3bd/image/upload/v1653487144/Capture_d_e%CC%81cran_2022-05-25_a%CC%80_15.27.18_jwrhub.png" alt="">
+
+    <% end %>
+
+    <%= render "shared/searchbar" %>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto border border-1 rounded-pill border-secondary">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://i.pravatar.cc/150?img=52", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Mes réservations", "/dashboard", class: "dropdown-item" %>
+              <%= link_to "Louer mes meubles", new_furniture_path, class: "dropdown-item" %>
+              <%= link_to "Déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item active">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="fas fa-bars"></i> <i class="fas fa-user-circle width-50" style="transform: scale(1.5,1.5);"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

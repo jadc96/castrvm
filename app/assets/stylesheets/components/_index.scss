@@ -1,0 +1,33 @@
+// Import your components CSS files here.
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import "alert";
+@import "avatar";
+@import "form_legend_clear";
+@import "navbar";
+@import "footer";
+@import "icon";
+@import "logo";
+@import "button";
+@import "form_login";
+@import "form_register";
+@import "form_password";
+@import "form_create_furniture";
+
+@import "form_booking";
+@import "edit_destroy";
+@import "map";
+@import "image_pending";
+
+
+body {
+  background-color: #EDEBE6;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Lato', sans-serif;
+}
+
+a{
+  color: #01607F;
+}

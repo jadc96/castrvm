@@ -1,0 +1,154 @@
+// Specific CSS for your show-page
+
+.card.p-3.mt-1{
+  border-radius: 26px;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.p-3.bg-white{
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow:  31px 31px 98px #e3e3e3, -31px -31px 98px #ffffff;
+}
+
+.container > .row > .col-md-8{
+  margin: auto;
+}
+
+.alert.alert-warning.mt-1{
+  margin: 10px;
+}
+
+.d-flex.bd-highlight.text-muted{
+  border-radius: 11px;
+  background: #ffffff;
+  margin: 12%;
+  padding: 13px;
+}
+
+.secondary-button{
+  display: inline-block;
+  color: rgb(225, 172, 59);
+  text-align: center;
+  font-size: 20px;
+  padding: 7px;
+  width: 120px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.secondary-button a{
+  text-decoration: none;
+  color: rgb(225, 172, 59);
+}
+
+.secondary-button a:hover{
+  color: rgb(189, 157, 88);
+}
+
+.fa-solid.fa-angles-left{
+  color: rgb(225, 172, 59);
+  text-decoration: none;
+}
+
+.placeholder-padding {
+padding-left: 15px;
+outline: none;
+}
+
+//////////////////////////
+
+.carousel {
+  height: 350px;
+}
+
+.carousel-inner {
+  height: 350px;
+}
+
+
+.container-booking{
+  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+}
+
+.booking_start_date {
+  width: 100%;
+}
+
+.booking_end_date {
+  width: 100%;
+}
+
+
+.shopping-btn{
+  width: 200px;
+  // height: 50px;
+  padding: 25px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  // border: 1px solid #035F7F;
+  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+  background: transparent;
+  color: #035F7F;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+
+  & .create-shopping{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid #035F7F;
+    box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
+    color: #035F7F;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .create-shopping:hover{
+    color: #e9bd5f;
+  }
+
+
+  & span{
+    background: #035F7F;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.5s;
+    color: #ffff;
+    mix-blend-mode: darken;
+
+  }
+  &:hover{
+    border: none;
+
+    & span{
+  width: 100%;
+
+    }
+
+  }
+
+}
