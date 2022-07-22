@@ -6,6 +6,15 @@
       <p>Achat de <strong><%= @payment.castle.name %></strong> pour <strong><%= @payment.total_price %></strong> €</p>
       <p><strong>Du : </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
       <p><strong>Au : </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
+      <% nb_of_gst = Booking.where(id: params[:booking_id])[0][:number_of_guest] %>
+      <% nb_of_bd = Castle.where(id: params[:castle_id])[0][:number_of_bed] %>
+      <% if nb_of_gst > nb_of_bd %>
+        <div class="too-much-guests">
+          <p><strong>Attention ! </strong> Vous avez indiqué la présence de <strong><%= "#{nb_of_gst} invités" %></strong> alors que le lieu ne propose que <strong><%= "#{nb_of_bd} places." %></strong></p>
+          <p>Le propriétaire est en droit de vous refuser l'entrée s'il ne souhaite pas accueillir plus d'hôtes que mentionné dans l'annonce.</p>
+          <p>Contactez-le pour vous assurer du bon déroulement de votre accueil au château.</p>
+        </div>
+      <% end %>
 
       <div class="shopping-btn" id="pay">
         <a class="create-shopping">Payer maintenant</a>

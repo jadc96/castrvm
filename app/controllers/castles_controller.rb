@@ -5,7 +5,7 @@ class CastlesController < ApplicationController
   def index
     @castles = policy_scope(Castle)
     if params[:search].present?
-      sql_query = "castles.name ILIKE :query OR castles.department ILIKE :query OR castles.city ILIKE :query"
+      sql_query = "castles.name ILIKE :query OR castles.department ILIKE :query OR castles.address ILIKE :query"
       @castles = Castle.where(sql_query, query: "%#{params[:search]}%")
     end
     @markers = @castles.geocoded.map do |castle|
@@ -39,7 +39,7 @@ class CastlesController < ApplicationController
     if @castle.save
       redirect_to castle_path(@castle)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -49,8 +49,11 @@ class CastlesController < ApplicationController
 
   def update
     authorize @castle
-    @castle.update(params_castle)
-    redirect_to castle_path(@castle)
+    if @castle.update(params_castle)
+      redirect_to castle_path(@castle)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -66,6 +69,6 @@ class CastlesController < ApplicationController
   end
 
   def params_castle
-    params.require(:castle).permit(:name, :description, :city, :price_per_day, photos: [])
+    params.require(:castle).permit(:name, :description, :address, :department, :price_per_day, :number_of_bed, :number_of_room, :smokers_welcome, :animals_welcome, :wifi, photos: [])
   end
 end

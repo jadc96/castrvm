@@ -15,6 +15,11 @@
     <p> Fin de la location : <%= @booking.end_date.strftime('%d/%m/%Y') %></p>
     <br>
     <h5> Prix total : <%= @booking.total_price %> €</h5>
+    <br>
+    <% if @booking.number_of_guest > @castle.number_of_bed %>
+      <p><%= "Attention ! Vous avez indiqué #{@booking.number_of_guest} invités mais le lieu ne propose que #{@castle.number_of_bed} places." %></p>
+      <p><%= "Contactez le propriétaire pour plus d'informations." %></p>
+    <% end %>
   </div>
 </div>
 
@@ -43,6 +48,15 @@
 
   </div>
 </div>
+<% if @booking.status == "pending" %>
+  <%= link_to booking_path, data: {turbo_method: "delete"} do %>
+    <p class="text-center cancel-booking">Annuler cette réservation</p>
+  <% end %></p>
+<% else %>
+  <%= link_to booking_path, data: {turbo_method: "delete"} do %>
+    <p class="text-center cancel-booking">Retirer cette réservation de la liste</p>
+  <% end %></p>
+<% end %>
 <br>
 <br>
 <br>
