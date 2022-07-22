@@ -1,5 +1,11 @@
 <br>
-<h1>Toutes les annonces de <%= User.where(id: params[:id])[0].first_name %></h1>
+<% user = User.where(id: params[:id])[0].first_name %>
+<% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
+<% if vowel.include?(user[0])  %>
+  <h1>Toutes les annonces d'<%= user %></h1>
+<% else %>
+  <h1>Toutes les annonces de <%= user %></h1>
+<% end %>
 
 <div class="row">
   <% @castles.each do |castle| %>
@@ -14,7 +20,6 @@
               <h2><%=castle.name.capitalize%></h2>
             </div>
             <h2 class="card-product-pricing"><%= castle.price_per_day %>€</h2>
-            <img src="<%= castle.user.avatar %>" class="card-product-user avatar-bordered" />
           </div>
 
         </div>
