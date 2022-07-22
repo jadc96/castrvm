@@ -1,31 +1,81 @@
 .banner {
+  text-align: center;
   background-size: cover;
   background-position: center;
-  background-image: url('https://img.freepik.com/free-photo/living-room-scandinavian-interior-design_53876-146865.jpg?w=1480&t=st=1653487309~exp=1653487909~hmac=c249f2a6e414e864190307761ed0eeb6ae743e2600bc0dbc2130b9645f9cbdff');
+  background-image: url('https://en.normandie-tourisme.fr/wp-content/uploads/sites/3/2020/02/chateau-harcourt-pierre-jeanson-1600x900.jpg');
   padding: 0;
-  height: 66vh;
+  height: 86.8vh;
+}
+
+.big-img {
+  height: 86.8vh;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.405), rgba(0, 0, 0, 0.405));
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin: auto auto 50px auto;
+  padding-top: 150px;
+}
+.logo {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  bottom: 15px;
+  border: 5px solid white;
+  transform: rotate(45deg);
+}
+
+.logo-part-two {
+  position: relative;
+  z-index: 1;
+  width: 7px;
+  height: 120px;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 1px 1px 10px white, 1px 1px 10px white;
+}
+
+.logo-part-three {
+  position: absolute;
+  z-index: 2;
+  right: -9px;
+  top: 40px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 1px 1px 10px white, 1px 1px 10px white;
 }
 
 .banner h1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 80px;
+  letter-spacing: 40px;
+  text-shadow: 1px 1px 10px black;
   margin: 0;
-  color: $main-color;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 56px;
-  font-weight: bold;
 }
 
 .banner p {
-  font-size: 16px;
-  color: $second-color;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: white;
+  opacity: .9;
+  font-family: 'Tangerine', cursive;
+  font-size: 65px;
+  text-shadow: 1px 1px 10px black;
 }
+
 .button {
   color: white;
-  background-color: $second-color;
   opacity: 0.5;
-  font-weight: 400;
   font-size: 15px;
+  font-weight: 400;
+  background-color: $second-color;
   padding: 12px;
 }
 .button:hover {

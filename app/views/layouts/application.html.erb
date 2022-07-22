@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>castlesFinder</title>
+    <title>CASTRVM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <%= favicon_link_tag asset_path('home-1.png') %>
+    <%= favicon_link_tag asset_path('castle-tower.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,10 +28,12 @@
     <% if action_name == "index" %>
       <%= render "shared/icons-banner" %>
     <% end %>
-    <div class="container">
-      <%= render "shared/flashes" %>
-      <%= yield %>
-    </div>
+    <% if action_name != "home" %>
+      <div class="container">
+        <%= render "shared/flashes" %>
+        <%= yield %>
+      </div>
+    <% end %>
     <% if action_name == "index" %>
       <%= render "shared/link-to-map" %>
     <% end %>
