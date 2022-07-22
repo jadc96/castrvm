@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: :show
+  before_action :set_booking, only: %i[show destroy]
   before_action :set_castle, only: :create
 
   def show
@@ -45,10 +45,21 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to dashboard_path, status: :see_other
+    if @booking.status == "pending"
+      flash[:alert] = "Votre réservation a bien été annulée"
+    else
+      flash[:alert] = "Votre réservation a bien été supprimée de la liste"
+    end
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:total_price, :start_date, :end_date)
+    params.require(:booking).permit(:total_price, :start_date, :end_date, :number_of_guest)
   end
 
   def set_castle

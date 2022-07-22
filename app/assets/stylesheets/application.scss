@@ -13,6 +13,7 @@
 @import "pages/index";
 @import "pages/show";
 @import "pages/showbook";
+@import "pages/payment-new";
 
 @function get-breakpoints($key: "md") {
   @return map-get($container-max-widths, $key);

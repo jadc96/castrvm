@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: :show
+  resources :bookings, only: %i[show destroy]
 
   get "/castles/user/:id", to: "castles#index_by_user", as: "user_index"
 
