@@ -5,7 +5,7 @@ class CastlesController < ApplicationController
   def index
     @castles = policy_scope(Castle)
     if params[:search].present?
-      sql_query = "castles.name ILIKE :query OR castles.genre ILIKE :query"
+      sql_query = "castles.name ILIKE :query OR castles.department ILIKE :query OR castles.city ILIKE :query"
       @castles = Castle.where(sql_query, query: "%#{params[:search]}%")
     end
     @markers = @castles.geocoded.map do |castle|
