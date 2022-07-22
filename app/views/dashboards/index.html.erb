@@ -7,9 +7,13 @@
 
     <!-- pending bookings-->
 
-    <div class= "col status">
+    <div class= "col status text-center">
       <span id="alert-pending">EN ATTENTE...</span>
-      <% if Booking.where(user_id: current_user.id).where(status: "pending") %>
+      <% pending_bookings = Booking.where(user_id: current_user.id).where(status: "pending") %>
+
+      <% if pending_bookings.empty? %>
+        <p class="no-booking">Vous n'avez pas de réservations en attente.</p>
+      <% else %>
         <% Booking.where(user_id: current_user.id).where(status: "pending").each do |b| %></p>
           <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
             <%= cl_image_tag b.castle.photos.first.key %>
@@ -21,16 +25,17 @@
             </div>
           </div>
         <% end %>
-      <% else %>
-        <p>Vous n'avez pas de réservations en attente.</p>
       <% end %>
     </div>
 
     <!-- accepted bookings -->
 
-    <div class= "col status">
+    <div class= "col status text-center">
       <span id="alert-accepted"><i class="fa-solid fa-check"></i>   PAYÉES</span>
-      <% if Booking.where(user_id: current_user.id).where(status: "paid") %>
+      <% paid_bookings = Booking.where(user_id: current_user.id).where(status: "paid") %>
+      <% if paid_bookings.empty? %>
+        <p class="no-booking">Vous n'avez pas encore de réservation payée.</p>
+      <% else %>
         <% Booking.where(user_id: current_user.id).where(status: "paid").each do |b| %></p>
           <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
             <%= cl_image_tag b.castle.photos.first.key %>
@@ -42,8 +47,6 @@
             </div>
           </div>
         <% end %>
-      <% else %>
-        <p>Vous n'avez pas encore de réservation payée.</p>
       <% end %>
     </div>
 

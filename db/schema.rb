@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_104826) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_131941) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104826) do
     t.datetime "updated_at", null: false
     t.string "checkout_session_id"
     t.string "status"
+    t.integer "number_of_guest"
     t.index ["castle_id"], name: "index_bookings_on_castle_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -62,11 +63,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_104826) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.bigint "user_id", null: false
-    t.string "city"
     t.float "latitude"
     t.float "longitude"
     t.text "description"
     t.string "department"
+    t.boolean "favorite"
+    t.integer "number_of_room"
+    t.integer "number_of_bed"
+    t.boolean "smokers_welcome"
+    t.boolean "animals_welcome"
+    t.boolean "wifi"
+    t.text "review"
+    t.integer "rating"
+    t.string "address"
     t.index ["user_id"], name: "index_castles_on_user_id"
   end
 
