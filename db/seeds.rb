@@ -19,77 +19,66 @@ User.create(
   last_name: "Nolan",
   email: "sylvie.nolan@laposte.net",
   password: "sylviiie",
-  avatar: "https://i.pravatar.cc/150?img=1"
 )
 User.create(
   first_name: "Georges",
   last_name: "Bondel",
   email: "georges.bondel@yahoo.fr",
   password: "georgio",
-  avatar: "https://i.pravatar.cc/150?img=8"
 )
 User.create(
   first_name: "Caroline",
   last_name: "Dupont",
   email: "caroline.dpt@gmail.com",
   password: "azerty",
-  avatar: "https://i.pravatar.cc/150?img=5"
 )
 User.create(
   first_name: "Etienne",
   last_name: "Lemarchand",
   email: "etiennelmd@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=11"
 )
 User.create(
   first_name: "Alexandre",
   last_name: "Duverneuil",
   email: "alexdvn@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=12"
 )
 User.create(
   first_name: "Kevin",
   last_name: "Machin",
   email: "kevdev@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=14"
 )
 User.create(
   first_name: "Jean-Michel",
   last_name: "Cantal",
   email: "jean-michel.cantal@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=17"
 )
 User.create(
   first_name: "Emma",
   last_name: "Proust",
   email: "emmaproust@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=9"
 )
 User.create(
   first_name: "Brigitte",
   last_name: "Durand",
   email: "bdurand@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=23"
 )
 User.create(
   first_name: "Elodie",
   last_name: "Roland",
   email: "elo@gmail.com",
   password: "123456",
-  avatar: "https://i.pravatar.cc/150?img=28"
 )
 User.create(
   first_name: "ja",
   last_name: "dc",
   email: "ja.dc@gmail.com",
   password: "moviefinder",
-  avatar: "https://i.pravatar.cc/150?img=52"
 )
 
 puts 'Users created'
