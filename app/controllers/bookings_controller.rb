@@ -52,7 +52,7 @@ class BookingsController < ApplicationController
   end
 
   def set_castle
-    @castle = castle.find(params[:castle_id])
+    @castle = Castle.find(params[:castle_id])
   end
 
   def set_booking
