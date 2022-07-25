@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border border-white d-flex justify-content-between">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border d-flex justify-content-between">
     <%= link_to castles_path, class: "navbar-brand" do %>
     <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
 
@@ -8,9 +8,7 @@
 
     <% if user_signed_in? %>
       <div class="links">
-        <p><%= link_to "Mes réservations", "/dashboard" %></p>
-        <p><%= link_to "Louer mon château", new_castle_path %></p>
-        <p><%= link_to "Déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %></p>
+        <p class="my-profile"><%= link_to "Mon profil", "/dashboard" %></p>
       </div>
     <% else %>
       <li class="nav-item active">

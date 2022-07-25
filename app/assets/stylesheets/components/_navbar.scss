@@ -1,10 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #fffcf6;
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: white;
+  box-shadow: 0 0 20px rgb(168, 168, 168);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,4 +24,8 @@
 .links {
   margin-right: 10px;
   display: flex;
+}
+
+.my-profile {
+  margin: 0 15px 0 0;
 }
