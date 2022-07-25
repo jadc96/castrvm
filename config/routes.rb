@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "dashboards#index"
 
-  resources :castles do
+  resources :castles, only: %i[index new show create edit update] do
+    resources :favorites, only: %i[index create update destroy]
     resources :bookings, only: :create do
       resources :payments, only: :new
     end
   end
 
+  resources :castles, only: :destroy
   resources :bookings, only: %i[show destroy]
 
   get "/castles/user/:id", to: "castles#index_by_user", as: "user_index"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_131941) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_25_181622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,7 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_131941) do
     t.float "longitude"
     t.text "description"
     t.string "department"
-    t.boolean "favorite"
     t.integer "number_of_room"
     t.integer "number_of_bed"
     t.boolean "smokers_welcome"
@@ -77,6 +76,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_131941) do
     t.integer "rating"
     t.string "address"
     t.index ["user_id"], name: "index_castles_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "castle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["castle_id"], name: "index_favorites_on_castle_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,4 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_131941) do
   add_foreign_key "bookings", "castles"
   add_foreign_key "bookings", "users"
   add_foreign_key "castles", "users"
+  add_foreign_key "favorites", "castles"
+  add_foreign_key "favorites", "users"
 end

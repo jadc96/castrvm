@@ -1,13 +1,9 @@
-class BookingPolicy < ApplicationPolicy
+class FavoritePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.where(user: user)
+      scope.all
     end
-  end
-
-  def show?
-    true
   end
 
   def create?
@@ -19,6 +15,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    true
   end
 end
