@@ -1,39 +1,60 @@
-<div class="see-all">
-  <% if policy(Castle).new? %>
-    <%= link_to "+  nouvelle annonce", new_castle_path, class: "btn-new-castle"  %>
-  <% end %>
-
-  <% if params[:search].nil? %>
-    <h2 class="title-index">Toutes les annonces</h2>
-  <% else %>
-    <h2 class="title-index">Résultats pour '<%= params[:search] %>'</h2>
-  <% end %>
-</div>
-
-<div class="row">
-  <% @castles.each do |castle| %>
-    <div class="col-4">
-
-      <a href="<%= castle_path(castle.id)%>">
-        <div class="card-product">
-          <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
-
-          <div class="card-product-infos">
-            <div class="card-product-infos-left mt-3">
-              <h2><%=castle.name.capitalize%></h2>
-            </div>
-            <h2 class="card-product-pricing"><%= castle.price_per_day %>€</h2>
-          </div>
-
-        </div>
-      </a>
-
-    </div>
-  <% end %>
+<% if params[:map] == 'true' %>
 
   <div style="width: 100%; height: 600px;" id="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
+
+    <% if @castles != nil %>
+      <div class="link-to-map"><%= link_to "Voir la liste", castles_path %></div>
+    <% end %>
+
+<% else %>
+
+  <div class="see-all">
+    <% if policy(Castle).new? %>
+      <%= link_to "+  nouvelle annonce", new_castle_path, class: "btn-new-castle"  %>
+    <% end %>
+
+    <% if params[:search].nil? %>
+      <h2 class="title-index">Toutes les annonces</h2>
+    <% else %>
+      <% if @castles.empty? %>
+        <h2 class="title-index"><%= "Pas de résultat pour '#{params[:search]}'" %></h2>
+      <% else %>
+        <h2 class="title-index">Résultats pour '<%= params[:search] %>'</h2>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @castles.each do |castle| %>
+
+      <div class="col-4">
+
+        <a href="<%= castle_path(castle.id)%>">
+          <div class="card-product">
+            <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+            <div class="card-product-infos">
+              <div class="card-product-infos-left mt-1">
+                <h2><%= castle.name %></h2>
+                <p><%= castle.department %></p>
+                <h2><%= castle.price_per_day %>€ / jour</h2>
+              </div>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+
+    <% end %>
+  </div>
+
+  <% if @castles != nil %>
+    <div class="link-to-map"><%= link_to "Voir la carte", castles_path(map: true) %></div>
+  <% end %>
+
+<% end %>

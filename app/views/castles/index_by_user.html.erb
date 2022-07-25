@@ -16,10 +16,11 @@
           <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
 
           <div class="card-product-infos">
-            <div class="card-product-infos-left mt-3">
-              <h2><%=castle.name.capitalize%></h2>
+            <div class="card-product-infos-left mt-1">
+              <h2><%= castle.name %></h2>
+              <p><%= castle.department %></p>
+              <h2><%= castle.price_per_day %>€ / jour</h2>
             </div>
-            <h2 class="card-product-pricing"><%= castle.price_per_day %>€</h2>
           </div>
 
         </div>

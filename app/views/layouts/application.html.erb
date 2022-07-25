@@ -36,9 +36,6 @@
         <%= yield %>
       </div>
     <% end %>
-    <% if action_name == "index" %>
-      <%= render "shared/link-to-map" %>
-    <% end %>
     <% if action_name != "home" %>
       <%= render "shared/footer" %>
     <% end %>
