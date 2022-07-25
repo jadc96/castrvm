@@ -3,24 +3,19 @@ class FavoritesController < ApplicationController
     @favorites = policy_scope(Favorite)
   end
 
-  def new
-    @favorite = Favorite.new
-    authorize @favorite
-  end
-
   def create
     @favorite = Favorite.new(user_id: current_user.id, castle_id: params[:castle_id])
     @favorite.save!
     authorize @favorite
+    redirect_to castle_path(params[:castle_id]), data: {turbo_method: "get"}
     flash[:alert] = "Ce château a bien été ajouté à vos favoris"
-    redirect_back(fallback_location: castles_path)
   end
 
   def destroy
-    @favorite = Favorite.where(user_id: current_user.id, castle_id: params[:castle_id])
+    @favorite = Favorite.find(params[:id])
     authorize @favorite
-    @favorite[0].destroy
+    @favorite.destroy
+    redirect_to castle_path(params[:castle_id]), status: :see_other
     flash[:alert] = "Supprimé des favoris"
-    redirect_back(fallback_location: castles_path)
   end
 end

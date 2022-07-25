@@ -59,13 +59,25 @@
 
       <!-- card -->
       <div class="card p-3 mt-4 rounded-3  container-booking">
-      <% user = @castle.user.first_name %>
-      <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
-      <% if vowel.include?(user[0])  %>
-        <p><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
-      <% else %>
-        <p><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
-      <% end %>
+        <% user = @castle.user.first_name %>
+        <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
+        <% if vowel.include?(user[0])  %>
+          <p><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+        <% else %>
+          <p><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+        <% end %>
+
+        <% @favorite = Favorite.where(user_id: current_user.id, castle_id: @castle.id) %>
+        <% if @favorite.empty? %>
+          <%= link_to castle_favorites_path(@castle.id), data: {turbo_method: 'post'} do %>
+            <i class="fa-solid fa-heart" style="color: black;"></i>
+          <% end %>
+        <% else %>
+          <%= link_to castle_favorite_path(@castle.id, @favorite[0].id), data: {turbo_method: 'delete'} do %>
+            <i class="fa-solid fa-heart" style="color: red;"></i>
+          <% end %>
+        <% end %>
+
         <p><strong><%= @castle.description %></strong></p><br>
         <p>Informations sur la livraison</p>
         <p><small>
