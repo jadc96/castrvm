@@ -1,5 +1,6 @@
 class Castle < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
