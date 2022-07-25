@@ -1,12 +1,9 @@
 <div class="banner">
   <div class="big-img">
-    <div class="logo-container">
-      <div class="logo"></div>
-      <div class="logo-part-two"><div class="logo-part-three"></div></div>
-
-    </div>
     <h1>CASTRVM</h1>
     <p>Goûtez à la vie de château</p>
-    <%= link_to "Les annonces", castles_path, class: "btn rounded-pill shadow-none button" %>
+    <%= link_to castles_path do %>
+      <img class="enter" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
+    <% end %>
   </div>
 </div>
