@@ -85,340 +85,144 @@ puts 'Users created'
 
 puts 'Creating castles'
 
-castles = [
-  {
-    description: "A clean look that’s easy to like and mix with other styles, either supporting a desk or standing alone. The back is finished so you can place it in the middle of the room – all sides are just as beautiful.",
-    price_per_day: 2,
-    name: "Grand lit en bois de hêtre",
-    department: "01 - Ain",
-    address: "11 rue de Rivoli, Paris",
-    user_id: 1,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "You know the feeling when you sit, lie down or hang out in a sofa, rather than on it. That’s how embracing the deep and generous UPPLAND sofa is – your new favorite place for cozy evenings and lazy days!",
-    price_per_day: 1,
-    name: "Canapé en cuir 2 places",
-    department: "01 - Ain",
-    address: "140 boulevard du Montparnasse, Paris",
-    user_id: 1,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "A clean look that’s easy to like and mix with other styles, either supporting a desk or standing alone. The back is finished so you can place it in the middle of the room – all sides are just as beautiful.",
-    price_per_day: 1,
-    name: "Lot de 2 chaises d'école rouges",
-    department: "01 - Ain",
-    address: "53 avenue des Champs Elysées, Paris",
-    user_id: 2,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This stackable, 3-legged stool with bent legs and triangular-shaped seat is a great little accent that’s comes in handy when you need extra seating for guests or a place to unload your cup of coffee or tea!",
-    price_per_day: 2,
-    name: "Table basse en verre",
-    department: "01 - Ain",
-    address: "25 rue Caulaincourt, Paris",
-    user_id: 3,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "You know the feeling when you sit, lie down or hang out in a sofa, rather than on it. That’s how embracing the deep and generous UPPLAND sofa is – your new favorite place for cozy evenings and lazy days!",
-    price_per_day: 3,
-    name: "Table en bois 6 places",
-    department: "01 - Ain",
-    address: "13 bis avenue de la Motte-Picquet, Paris",
-    user_id: 4,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Comfy seating throughout the home gives a relaxed feel – and with airy PELLO armchair you can easily create your comfort zones everywhere. The secrets are good back support and a slightly resilient frame!",
-    price_per_day: 1,
-    name: "Canapé gris confortable",
-    department: "01 - Ain",
-    address: "11 rue Malar, Paris",
-    user_id: 5,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Comfy seating throughout the home gives a relaxed feel – and with airy PELLO armchair you can easily create your comfort zones everywhere. The secrets are good back support and a slightly resilient frame!",
-    price_per_day: 2,
-    name: "Tabouret haut de bar",
-    department: "01 - Ain",
-    address: "25 avenue de la République, Montrouge",
-    user_id: 6,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Sleeper sofa offers around-the-clock comfort. The adjustable back allows you to sit during the day, lean back in the evening and lie down at night. The Vissle gray cover fits in just about anywhere.",
-    price_per_day: 3,
-    name: "Armoire en chêne massif",
-    department: "01 - Ain",
-    address: "2 rue Boissonade, Paris",
-    user_id: 7,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "A clean expression that fits right in, in the bedroom or wherever you place it. Smooth-running drawers and in a choice of finishes – pick your favorite. Psst! Please attach to the wall.",
-    price_per_day: 2,
-    name: "Lit 2 places avec tête de lit",
-    department: "01 - Ain",
-    address: "10 rue Daguerre, Paris",
-    user_id: 8,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "You know the feeling when you sit, lie down or hang out in a sofa, rather than on it. That’s how embracing the deep and generous UPPLAND sofa is – your new favorite place for cozy evenings and lazy days!",
-    price_per_day: 4,
-    name: "Fauteuil Louis XV très bon état",
-    department: "01 - Ain",
-    address: "5 rue Boulard, Paris",
-    user_id: 8,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Comfy seating throughout the home gives a relaxed feel – and with airy PELLO armchair you can easily create your comfort zones everywhere. The secrets are good back support and a slightly resilient frame!",
-    price_per_day: 1,
-    name: "Lampe d'architecte",
-    department: "01 - Ain",
-    address: "1 place de la Contrescarpe, Paris",
-    user_id: 7,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This table for 4 blends a warm wood expression with sturdy metal in a slim design that’s pleasing to the eye even in smaller spaces. Pair it with SANDSBERG chair to create a welcoming and coordinated look.",
-    price_per_day: 2,
-    name: "Lampe de chevet led",
-    department: "01 - Ain",
-    address: "65 rue de Turbigo, Paris",
-    user_id: 6,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This stackable, 3-legged stool with bent legs and triangular-shaped seat is a great little accent that’s comes in handy when you need extra seating for guests or a place to unload your cup of coffee or tea!",
-    price_per_day: 4,
-    name: "Bureau moderne et design",
-    department: "01 - Ain",
-    address: "194 rue de Javel, Paris",
-    user_id: 9,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "You know the feeling when you sit, lie down or hang out in a sofa, rather than on it. That’s how embracing the deep and generous UPPLAND sofa is – your new favorite place for cozy evenings and lazy days!",
-    price_per_day: 4,
-    name: "Lot de 2 tables de chevet identiques",
-    department: "01 - Ain",
-    address: "3 rue Messine, Paris",
-    user_id: 10,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "You know the feeling when you sit, lie down or hang out in a sofa, rather than on it. That’s how embracing the deep and generous UPPLAND sofa is – your new favorite place for cozy evenings and lazy days!",
-    price_per_day: 5,
-    name: "Tapis en peau d'ours",
-    department: "01 - Ain",
-    address: "6 rue de la Soif, Paris",
-    user_id: 10,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "A clean look that’s easy to like and mix with other styles, either supporting a desk or standing alone. The back is finished so you can place it in the middle of the room – all sides are just as beautiful.",
-    price_per_day: 1,
-    name: "Meuble TV ordinaire",
-    department: "01 - Ain",
-    address: "4 rue Madame, Paris",
-    user_id: 10,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This table for 4 blends a warm wood expression with sturdy metal in a slim design that’s pleasing to the eye even in smaller spaces. Pair it with SANDSBERG chair to create a welcoming and coordinated look.",
-    price_per_day: 5,
-    name: "Bibliothèque XVIIIe vernie",
-    department: "01 - Ain",
-    address: "16 villa Gaudelet, Paris",
-    user_id: 9,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Comfy seating throughout the home gives a relaxed feel – and with airy PELLO armchair you can easily create your comfort zones everywhere. The secrets are good back support and a slightly resilient frame!",
-    price_per_day: 3,
-    name: "Commode Empire",
-    department: "01 - Ain",
-    address: "15 avenue du général Leclerc, Paris",
-    user_id: 1,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "Sleeper sofa offers around-the-clock comfort. The adjustable back allows you to sit during the day, lean back in the evening and lie down at night. The Vissle gray cover fits in just about anywhere.",
-    price_per_day: 1,
-    name: "Matelas une place",
-    department: "01 - Ain",
-    address: "3 place Vendôme, Paris",
-    user_id: 2,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This stackable, 3-legged stool with bent legs and triangular-shaped seat is a great little accent that’s comes in handy when you need extra seating for guests or a place to unload your cup of coffee or tea!",
-    price_per_day: 2,
-    name: "Four",
-    department: "01 - Ain",
-    address: "30 avenue Denfert-Rochereau, Paris",
-    user_id: 3,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "A clean design with solid wood veneer. Place the bed on its own or with the headboard against a wall. If you need space for extra bedding, add MALM bed storage boxes on casters.",
-    price_per_day: 1,
-    name: "Fauteuil en osier",
-    department: "01 - Ain",
-    address: "112 avenue Daumesnil, Paris",
-    user_id: 4,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "The black stainless steel and space-saving design set the tone in the kitchen. There are many options to tailor the space inside for easy access and a good overview, putting an end to food waste at home.",
-    price_per_day: 5,
-    name: "Lit king size",
-    department: "01 - Ain",
-    address: "64 boulevard Saint-Germain, Paris",
-    user_id: 5,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  },
-  {
-    description: "This oven offers all the basic functions you need, including the convenience of self-clean. A look that fits right in and a smooth surface for easy cleaning.",
-    price_per_day: 6,
-    name: "Table marquetée XVIIe",
-    department: "01 - Ain",
-    address: "16 rue de Tanger, Paris",
-    user_id: 5,
-    number_of_bed: 4,
-    number_of_room: 2,
-    smokers_welcome: false,
-    animals_welcome: true,
-    wifi: true,
-    favorite: false
-  }
-]
 
-castles.each do |castle|
-  cas = Castle.new(castle)
-  file1 = { io: URI.open("https://source.unsplash.com/random/?chair"), filename: "castle", content_type: "image/png" }
-  file2 = { io: URI.open("https://source.unsplash.com/random/?table"), filename: "castle", content_type: "image/png" }
-  file3 = { io: URI.open("https://source.unsplash.com/random/?couch"), filename: "castle", content_type: "image/png" }
-  cas.photos.attach([file1, file2, file3])
-  cas.save!
-  puts 'ok'
-end
+castle_one = Castle.new(
+  description: "Situé en Bretagne, entre Fougères et Dinan, Combourg, hautaine forteresse féodale, domine un étang mélancolique encombré de roseaux, dans un paysage austère de landes et de bois. Ces lieux ont profondément marqué Chateaubriand, l'un des précurseurs du nromantisme en France, qui y passa toute son enfance. \"C\'est dans les bois de Combourg que je suis devenu ce que je suis, que j\'ai commencé à sentir la première atteinte de cet ennui que j\'ai traîné toute ma vie, de cette trsitesse qui a fait mon tourment et ma félicité.\" Edifié au XIe siècle, le château est complètement rénové au XIXe.",
+  price_per_day: 1500,
+  name: "Combourg",
+  subtitle: "Un château au coeur des lettres françaises",
+  style: "Château fort",
+  department: "35 - Ille-et-Vilaine",
+  address: "23 Rue des Princes, 35270 Combourg",
+  user_id: 1,
+  number_of_bed: 7,
+  number_of_room: 15,
+  smokers_welcome: true,
+  animals_welcome: false,
+  wifi: false,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_one.photos.attach([file1, file2, file3])
+castle_one.save!
+puts 'ok'
+
+castle_two = Castle.new(
+  description: "Posé sur les falaises qui dominent l\'océan Atlantique à Hendaye, le château d\'Abbadia offre une vision saisissante : avec ses tours crénelées et ses faux airs de forteresse, on pourrait le croire tout droit venu du Moyen Âge. Il est pourtant né dans la deuxième partie du XIXe siècle, conçu selon les volontés d'un amoureux des étoiles, épris de voyages, de philosophie et de philologie : le scientifique Antoine d'Abbadie.",
+  price_per_day: 1800,
+  name: "Abbadia",
+  subtitle: "La surprenante thébaïde d'un grand voyageur",
+  style: "éclectique",
+  department: "64 - Pyrénées-Atlantiques",
+  address: "Rte de la Corniche, 64700 Hendaye",
+  user_id: 1,
+  number_of_bed: 9,
+  number_of_room: 18,
+  smokers_welcome: true,
+  animals_welcome: true,
+  wifi: true,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_two.photos.attach([file1, file2, file3])
+castle_two.save!
+puts 'ok'
+
+castle_three = Castle.new(
+  description: "Edifié au sommet d'une falaise qui surplombe la Dordogne, le château de Beynac constituait un post idéal pour surveiller la rivière et sa vallée. De la fière forteresse médiévale érigée au XIIe siècle subsiste une partie des murs d'enceinte, le donjon et la partie centrale du logis seigneurial, que vinrent compléter trois nouveau corps d'habitation au siècle suivant.",
+  price_per_day: 1000,
+  name: "Beynac",
+  subtitle: "Un balcon sur la Dordogne",
+  style: "Château médiéval",
+  department: "24 - Dordogne",
+  address: "Route du château, 24220 Beynac-et-Cazenac",
+  user_id: 2,
+  number_of_bed: 5,
+  number_of_room: 9,
+  smokers_welcome: true,
+  animals_welcome: true,
+  wifi: false,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_three.photos.attach([file1, file2, file3])
+castle_three.save!
+puts 'ok'
+
+castle_four = Castle.new(
+  description: "Ces ruines imposantes qui s'élèvent sur un éperon rocheux entre les vallées de la Thèze et de la Lémance, à la frontière du Quercy, sont celles du tout dernier château fort féodal élevé en terre de France. Illustrant magnifiquement l'évolution des techniques de défense du Moyen Âge à la Renaissance, le château de Bonaguil, qui n'eut à subir aucun asssaut, fut en définitive démantelé à la Révolution.",
+  price_per_day: 800,
+  name: "Bonaguil",
+  subtitle: "La dernière forteresse féodale",
+  style: "Château fort",
+  department: "47 - Lot-et-Garonne",
+  address: "47500 Saint-Front-sur-Lémance",
+  user_id: 3,
+  number_of_bed: 4,
+  number_of_room: 6,
+  smokers_welcome: true,
+  animals_welcome: true,
+  wifi: true,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_four.photos.attach([file1, file2, file3])
+castle_four.save!
+puts 'ok'
+
+castle_five = Castle.new(
+  description: "Située aux confins du Nivernais et du Morvan, la forteresse médiévale de Bazoches conserve de ses origines défensives une allure massive de place forte et un plan en forme de quadrilatère irrégulier. De ses propriétaires successifs se détache la figure de l'illustre Vauban : c'est à Bazoches que l'ingénieur militaire de Louis XIV travailla aux plans de plus de trois cents ouvrages fortifiés.",
+  price_per_day: 3500,
+  name: "Bazoches",
+  subtitle: "Une forteresse qui en vit naître beaucoup d'autres",
+  style: "Gothique et classique",
+  department: "58 - Nièvre",
+  address: "58190 Château de Bazoches",
+  user_id: 4,
+  number_of_bed: 7,
+  number_of_room: 16,
+  smokers_welcome: false,
+  animals_welcome: false,
+  wifi: true,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_five.photos.attach([file1, file2, file3])
+castle_five.save!
+puts 'ok'
+
+castle_six = Castle.new(
+  description: "Harmonieuse combinaison de château fort et de résidence, Anjony dresse ses quatre tours rondes ornées de toits en poivrière au-dessus des vertes frondaisons de la vallée de la Doire. L'étrange château-donjon, bâti en pierre de lave, se trouva pendant plus de deux siècles au coeur d'une rivalité familiale digne de celle des Montaigu et des Capulet.",
+  price_per_day: 1350,
+  name: "Anjony",
+  subtitle: "Le château de la discorde",
+  style: "Tour forte",
+  department: "15 - Cantal",
+  address: "6010 Le Bourg, 15310 Tournemire",
+  user_id: 5,
+  number_of_bed: 5,
+  number_of_room: 5,
+  smokers_welcome: false,
+  animals_welcome: true,
+  wifi: true,
+  indexed: true
+)
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_six.photos.attach([file1, file2, file3])
+castle_six.save!
+puts 'ok'
 
 puts 'castles created'
 
