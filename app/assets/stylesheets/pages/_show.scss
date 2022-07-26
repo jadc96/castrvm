@@ -67,7 +67,7 @@ outline: none;
   height: 350px;
 }
 
-.carousel-inner {
+#non-fs-carousel-inner {
   height: 350px;
 }
 
@@ -147,7 +147,7 @@ outline: none;
   }
 }
 
-.carousel-item img {
+.carousel-item #non-fs-img {
   width: auto;
   min-height: 350px;
   max-height: 350px;

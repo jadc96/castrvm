@@ -1,0 +1,13 @@
+<div class="total" data-controller="fullscreen">
+  <div class="full-screen-img" style="background-image: <%= @castle.photos.first.url %>;" data-fullscreen-target="top" >
+  </div>
+
+  <div class="gallery">
+        <% @castle.photos.each do |p| %>
+          <div class="small-picture" data-action="click->fullscreen#setBackground">
+            <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill %>
+            <p class="" data-fullscreen-target="key"><%= p.key %></p>
+          </div>
+        <% end %>
+  </div>
+</div>

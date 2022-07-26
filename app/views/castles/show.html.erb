@@ -15,14 +15,14 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-    <div class="carousel-inner">
+    <div id="non-fs-carousel-inner">
       <% @castle.photos.each_with_index do |photo, i|  %>
         <% if i == 0 %>
           <div class="carousel-item active">
         <% else %>
           <div class="carousel-item">
         <% end %>
-            <div class="cover center w-100"><%= cl_image_tag photo.key %></div>
+            <div class="cover center w-100"><%= cl_image_tag photo.key, id: "non-fs-img" %></div>
           </div>
       <% end %>
     </div>
