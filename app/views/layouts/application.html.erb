@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <% if action_name != "home" %>
+    <% if action_name != "home" && action_name != "full_screen" %>
       <%= render "shared/navbar" %>
     <% end %>
     <% if action_name == "home" %>
@@ -36,7 +36,7 @@
         <%= yield %>
       </div>
     <% end %>
-    <% if action_name != "home" %>
+    <% if action_name != "home" && action_name != "full_screen" %>
       <%= render "shared/footer" %>
     <% end %>
   </body>

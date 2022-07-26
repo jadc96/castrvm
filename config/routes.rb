@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[show destroy]
 
   get "/castles/user/:id", to: "castles#index_by_user", as: "user_index"
+  get "/castles/:id/fullscreen", to: "castles#full_screen", as: "full_screen"
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 

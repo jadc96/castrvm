@@ -16,6 +16,10 @@ class ApplicationPolicy
     false
   end
 
+  def full_screen?
+    false
+  end
+
   def create?
     false
   end

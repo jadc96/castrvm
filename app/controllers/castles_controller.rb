@@ -1,5 +1,5 @@
 class CastlesController < ApplicationController
-  before_action :set_castle, only: %i[show edit update destroy]
+  before_action :set_castle, only: %i[show full_screen edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -26,6 +26,10 @@ class CastlesController < ApplicationController
   def show
     authorize @castle
     @booking = Booking.new
+  end
+
+  def full_screen
+    authorize @castle
   end
 
   def new

@@ -15,6 +15,10 @@ class CastlePolicy < ApplicationPolicy
     true
   end
 
+  def full_screen?
+    true
+  end
+
   def create?
     true
   end
