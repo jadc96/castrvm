@@ -1,63 +1,55 @@
-<h6 class="d-block mx-auto text-center">Détails de votre commande</h6>
+<div class="reservation">
+  <h1>Réservation n°<%= @booking.id %></h1>
 
-<div class="card-product-2 d-flex mx-auto w-50 top-50 image-pending">
-  <%= cl_image_tag @castle.photos.first.key %>
-  <div class="card-product-2-infos px-3">
-    <h1 class="d-block mx-auto"><%= @castle.name.capitalize %></h1>
-    <% if @booking.status == 'pending' %>
-      <div class="pending-status"><p>EN ATTENTE</p></div>
-    <% else %>
-      <div class="accepted-status"><p>PAYÉE</p></div>
-    <% end %>
-    <br>
-    <p> Prix par jour : <%= @castle.price_per_day %> €</p>
-    <p> Début de la location : <%= @booking.start_date.strftime('%d/%m/%Y') %></p>
-    <p> Fin de la location : <%= @booking.end_date.strftime('%d/%m/%Y') %></p>
-    <br>
-    <h5> Prix total : <%= @booking.total_price %> €</h5>
-    <br>
-    <% if @booking.number_of_guest > @castle.number_of_bed %>
-      <p><%= "Attention ! Vous avez indiqué #{@booking.number_of_guest} invités mais le lieu ne propose que #{@castle.number_of_bed} places." %></p>
-      <p><%= "Contactez le propriétaire pour plus d'informations." %></p>
-    <% end %>
-  </div>
-</div>
+  <% if @booking.status == 'pending' %>
+    <div class="pending-status"><p>EN ATTENTE</p></div>
+  <% else %>
+    <div class="accepted-status"><p>PAYÉE</p></div>
+  <% end %>
 
-<!-- possible actions -->
+  <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
+  <% if vowel.include?(@castle.name[0])  %>
+    <h3>Location d'<%= @castle.name %> pour <%= @booking.total_price %> €</h3>
+  <% else %>
+    <h3>Location de <%= @castle.name %> pour <%= @booking.total_price %> €</h3>
+  <% end %>
+  <p class="details"><strong>Début de la location : </strong><%= @booking.start_date.strftime('%d/%m/%Y') %></p>
+  <p class="details"><strong>Fin de la location : </strong><%= @booking.end_date.strftime('%d/%m/%Y') %></p>
+  <p class="details-last"><strong>Prix par jour : </strong><%= @castle.price_per_day %> €</p>
 
+  <% if @booking.number_of_guest > @castle.number_of_bed %>
+    <div class="too-much-guests">
+      <p><strong>Attention ! </strong> Vous avez indiqué la présence de <strong><%= "#{@booking.number_of_guest} invités" %></strong> alors que le lieu ne propose que <strong><%= "#{@castle.number_of_bed} places." %></strong></p>
+      <p>Le propriétaire est en droit de vous refuser l'entrée s'il ne souhaite pas accueillir plus d'hôtes que mentionné dans l'annonce.</p>
+      <p>Contactez-le pour vous assurer du bon déroulement de votre accueil au château.</p>
+    </div>
+  <% end %>
 
-<div class="d-flex justify-content-center">
-  <div style="display: inline-block">
-
-    <% if @booking.status == "pending" %>
-      <div class="shopping-btn" id="pay">
-        <a class="create-shopping" href="/castles/<%= @booking.castle.id %>/bookings/<%= @booking.id %>/payments/new">Payer maintenant</a>
-        <span></span>
-      </div>
-    <% end %>
-
-    <div class="shopping-btn">
-      <a class="create-shopping" href="/castles">Continuer vos achats</a>
+  <% if @booking.status == "pending" %>
+    <div class="shopping-btn" id="pay">
+      <a class="create-shopping" href="/castles/<%= @booking.castle.id %>/bookings/<%= @booking.id %>/payments/new">Payer maintenant</a>
       <span></span>
     </div>
+  <% end %>
 
-    <div class="shopping-btn">
-      <a class="create-shopping" href="/dashboard">Voir mes réservations</a>
-      <span></span>
-    </div>
-
+  <div class="shopping-btn">
+    <a class="create-shopping" href="/castles">Continuer mes achats</a>
+    <span></span>
   </div>
+
+  <div class="shopping-btn">
+    <a class="create-shopping" href="/dashboard">Voir mes réservations</a>
+    <span></span>
+  </div>
+
+  <% if @booking.status == "pending" %>
+    <%= link_to booking_path, data: {turbo_method: "delete"} do %>
+      <p class="text-center cancel-booking">Annuler cette réservation</p>
+    <% end %></p>
+  <% else %>
+    <%= link_to booking_path, data: {turbo_method: "delete"} do %>
+      <p class="text-center cancel-booking">Retirer cette réservation de la liste</p>
+    <% end %></p>
+  <% end %>
+
 </div>
-<% if @booking.status == "pending" %>
-  <%= link_to booking_path, data: {turbo_method: "delete"} do %>
-    <p class="text-center cancel-booking">Annuler cette réservation</p>
-  <% end %></p>
-<% else %>
-  <%= link_to booking_path, data: {turbo_method: "delete"} do %>
-    <p class="text-center cancel-booking">Retirer cette réservation de la liste</p>
-  <% end %></p>
-<% end %>
-<br>
-<br>
-<br>
-<br>

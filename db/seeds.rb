@@ -90,7 +90,7 @@ castle_one = Castle.new(
   description: "Situé en Bretagne, entre Fougères et Dinan, Combourg, hautaine forteresse féodale, domine un étang mélancolique encombré de roseaux, dans un paysage austère de landes et de bois. Ces lieux ont profondément marqué Chateaubriand, l'un des précurseurs du nromantisme en France, qui y passa toute son enfance. \"C\'est dans les bois de Combourg que je suis devenu ce que je suis, que j\'ai commencé à sentir la première atteinte de cet ennui que j\'ai traîné toute ma vie, de cette trsitesse qui a fait mon tourment et ma félicité.\" Edifié au XIe siècle, le château est complètement rénové au XIXe.",
   price_per_day: 1500,
   name: "Combourg",
-  subtitle: "Un château au coeur des lettres françaises",
+  subtitle: "Un château au cœur des lettres françaises",
   style: "Château fort",
   department: "35 - Ille-et-Vilaine",
   address: "23 Rue des Princes, 35270 Combourg",
@@ -202,7 +202,7 @@ castle_five.save!
 puts 'ok'
 
 castle_six = Castle.new(
-  description: "Harmonieuse combinaison de château fort et de résidence, Anjony dresse ses quatre tours rondes ornées de toits en poivrière au-dessus des vertes frondaisons de la vallée de la Doire. L'étrange château-donjon, bâti en pierre de lave, se trouva pendant plus de deux siècles au coeur d'une rivalité familiale digne de celle des Montaigu et des Capulet.",
+  description: "Harmonieuse combinaison de château fort et de résidence, Anjony dresse ses quatre tours rondes ornées de toits en poivrière au-dessus des vertes frondaisons de la vallée de la Doire. L'étrange château-donjon, bâti en pierre de lave, se trouva pendant plus de deux siècles au cœur d'une rivalité familiale digne de celle des Montaigu et des Capulet.",
   price_per_day: 1350,
   name: "Anjony",
   subtitle: "Le château de la discorde",
