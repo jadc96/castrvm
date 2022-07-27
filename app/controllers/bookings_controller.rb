@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.castle_id = @castle.id
     @booking.user_id = current_user.id
-    @booking.total_price = (@castle.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 9
+    @booking.total_price = (@castle.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 20
     authorize @booking
 
     if @booking.save!

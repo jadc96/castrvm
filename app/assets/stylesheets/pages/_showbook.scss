@@ -1,3 +1,8 @@
+.reservation {
+  margin: 0 300px 0 300px;
+  padding: 20px 10px;
+}
+
 .card-product-2 {
   overflow: hidden;
   height: 250px;
@@ -32,29 +37,29 @@
   padding: 16px;
 }
 
-.secondary-button-booking{
-  border: 1px solid rgb(225, 172, 59);
-  border-radius: 25px;
-  color: rgb(225, 172, 59);
-  text-align: center;
-  font-size: 16px;
-  padding: 12px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 9px;
-}
+// .secondary-button-booking {
+//   border: 1px solid rgb(225, 172, 59);
+//   border-radius: 25px;
+//   color: rgb(225, 172, 59);
+//   text-align: center;
+//   font-size: 16px;
+//   padding: 12px;
+//   -webkit-transition: all 0.5s;
+//   -moz-transition: all 0.5s;
+//   -o-transition: all 0.5s;
+//   transition: all 0.5s;
+//   cursor: pointer;
+//   margin: 9px;
+// }
 
-.secondary-button-booking a{
-  text-decoration: none;
-  color: rgb(225, 172, 59);
-}
+// .secondary-button-booking a{
+//   text-decoration: none;
+//   color: rgb(225, 172, 59);
+// }
 
-.secondary-button-booking a:hover{
-  color: rgb(189, 157, 88);
-}
+// .secondary-button-booking a:hover{
+//   color: rgb(189, 157, 88);
+// }
 
 #alert-pending {
   color: rgb(197, 128, 0);
@@ -79,12 +84,13 @@
 }
 
 .pending-status {
-  width: 110px;
+  width: 120px;
   padding: 5px 10px;
   text-align: center;
   color: rgb(128, 96, 0);
   background-color: rgb(255,230, 153);
   border-radius: 4px;
+  margin-bottom: 15px;
 
   & p {
     margin: 0;
@@ -98,13 +104,48 @@
   color: rgb(0, 97, 0);
   background-color: rgb(198, 239, 206);
   border-radius: 4px;
+  margin-bottom: 15px;
 
   & p {
     margin: 0;
   }
 }
 
+.reservation h1 {
+  margin: 10px 0;
+}
+
+.reservation h3 {
+  margin-bottom: 15px;
+}
+
+.details {
+  margin-bottom: 5px;
+}
+
+.details-last {
+  margin-bottom: 25px;
+}
+
 .cancel-booking {
   text-decoration: none;
   color: red;
+}
+
+.fa-map-location-dot {
+  color: $main-color;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.fa-image {
+  color: $main-color;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.more-info {
+  position: absolute;
+  top: 350px;
+  left: 70px;
 }

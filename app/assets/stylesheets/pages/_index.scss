@@ -1,7 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
 
-#map {
+.map {
   border: 10px solid white;
   border-radius: 2px;
   margin: 30px 0 25px 0;
@@ -10,14 +10,14 @@
 .link-to-map {
   position: fixed;
   text-align: center;
-  height: 35px;
-  padding: 5px;
+  height: 45px;
+  padding: 10px;
   bottom: 50px;
   right: 50%;
-  width: 100px;
+  width: 130px;
   background: $bordeaux;
   color: white;
-  border-radius: 50px;
+  border-radius: 35px;
 
   & :hover {
     text-decoration: none;

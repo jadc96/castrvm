@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     @favorite.save!
     authorize @favorite
     redirect_to castle_path(params[:castle_id]), data: {turbo_method: "get"}
-    flash[:alert] = "Ce château a bien été ajouté à vos favoris"
+    flash[:alert] = "Ajouté à vos favoris"
   end
 
   def destroy

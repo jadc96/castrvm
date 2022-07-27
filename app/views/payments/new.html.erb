@@ -3,7 +3,7 @@
     <div class="col-md-3"><%= image_tag @payment.castle.photos.first, width: '100%' %></div>
     <div class="col">
       <h1>Récapitulatif du paiement</h1>
-      <p>Achat de <strong><%= @payment.castle.name %></strong> pour <strong><%= @payment.total_price %></strong> €</p>
+      <p>Location de <strong><%= @payment.castle.name %></strong> pour <strong><%= @payment.total_price %></strong> €</p>
       <p><strong>Du : </strong><%= @payment.start_date.strftime('%d-%m-%Y') %></p>
       <p><strong>Au : </strong><%= @payment.end_date.strftime('%d-%m-%Y') %></p>
       <% nb_of_gst = Booking.where(id: params[:booking_id])[0][:number_of_guest] %>

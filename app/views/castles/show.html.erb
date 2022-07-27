@@ -1,201 +1,209 @@
-<br>
-<!-- castle title and photos -->
-<div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
-  <div class="card-body d-block mx-auto py-0">
-    <h2 class="d-block mx-auto text-center my-0"><strong><%= @castle.name.capitalize %></strong></h2>
-    <h4 class="text-muted d-block mx-auto text-center w-75 mb-4"><%= @castle.subtitle %></h4>
+<% if params[:map] == 'true' %>
+
+  <div style="width: 100%; height: 600px;" class="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+    <% if @castles != nil %>
+      <div class="link-to-map"><%= link_to "Voir la liste", castles_path %></div>
+    <% end %>
+
+<% else %>
+
+  <br>
+  <!-- castle title and photos -->
+  <div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
+    <div class="card-body d-block mx-auto py-0">
+      <h2 class="d-block mx-auto text-center my-0"><strong><%= @castle.name.capitalize %></strong></h2>
+      <h4 class="text-muted d-block mx-auto text-center w-75 mb-4"><%= @castle.subtitle %></h4>
     </div>
+    <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
 
-    <div class="carousel-inner">
-      <% @castle.photos.each_with_index do |photo, i|  %>
-        <% if i == 0 %>
-          <div class="carousel-item active">
-        <% else %>
-          <div class="carousel-item">
-        <% end %>
-            <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
-          </div>
-      <% end %>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-
-<%= link_to "Voir toutes les photos", full_screen_path %>
-
-<!-- castle booking checkout-->
-<div class="container p-3">
-  <div class="row">
-    <div class="col-md-8 my-5">
-
-      <!-- alert (warning) -->
-
-        <div class="" data-controller="timeout">
-          <div class="hurry alert-warning" role="alert">
-            <strong>Dépêchez-vous !</strong> Plusieurs personnes consultent l'annonce chaque jour.
-          </div>
-        </div>
-
-      <h3>Plus d'informations...</h3>
-
-      <!-- card -->
-      <div class="card p-3 mt-4 rounded-3  container-booking">
-        <% user = @castle.user.first_name %>
-        <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
-        <% if vowel.include?(user[0])  %>
-          <p><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
-        <% else %>
-          <p><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
-        <% end %>
-
-        <% if current_user != nil %>
-          <% if Favorite.where(user_id: current_user.id, castle_id: @castle.id).empty? %>
-            <%= link_to castle_favorites_path(@castle.id), data: {turbo_method: 'post'} do %>
-              <i class="fa-solid fa-heart" style="color: lightgrey"></i>
-            <% end %>
+      <div class="carousel-inner">
+        <% @castle.photos.each_with_index do |photo, i|  %>
+          <% if i == 0 %>
+            <div class="carousel-item active">
           <% else %>
-            <%= link_to castle_favorite_path(@castle.id, Favorite.where(user_id: current_user.id, castle_id: @castle.id)[0].id), data: {turbo_method: 'delete'} do %>
-              <i class="fa-solid fa-heart" style="color: red"></i>
-            <% end %>
+            <div class="carousel-item">
           <% end %>
-        <% end %>
-
-        <p><strong><%= @castle.description %></strong></p><br>
-        <p>Informations sur la livraison</p>
-        <p><small>
-          Les tarifs de livraison commencent à 5€. Votre commande sera livrée dans une pièce de votre choix. Veuillez sélectionner la date et l'heure de livraison qui vous conviennent le mieux. Vous recevrez un appel du fournisseur de livraison indépendant confirmant votre date de livraison et la fenêtre de temps de 4 heures. Votre signature est requise pour recevoir votre commande. Une fois que vous avez reçu la confirmation que votre commande est en route, le fournisseur de livraison indépendant vous appellera la veille de la date de livraison prévue pour vous fournir une fenêtre de quatre heures.
-        </small></p>
-      </div>
-
-      <div class="edit-destroy">
-          <% if policy(@castle).edit? %>
-        <a class="fa-solid fa-pen-to-square edit">
-            <%= link_to "Edit this castle", edit_castle_path(@castle) %>
-          <% end %>
-        </a>
-        <br>
-        <div class="destroy-icon">
-          <%= button_to "Destroy this castle", @castle, method: :delete if policy(@castle).destroy? %>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col-md-4 ">
-      <!-- checkout -->
-      <div class="card p-3 mt-1  container-booking">
-
-        <!-- make this a full length button -->
-        <div class="row ">
-          <div class="d-flex justify-content-between bd-highlight mt-2">
-            <div class="bd-highlight">
-              <p><strong><%= @castle.price_per_day %> €</strong> /jour</p>
+              <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
             </div>
-          </div>
+        <% end %>
+      </div>
 
-          <div class="all checkout" data-controller="dynamic-booking-price"
-                    data-dynamic-booking-price-night-value="<%= @castle.price_per_day %>">
-              <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 
-                <%= simple_form_for [@castle, @booking],
-                html: {
-                  data: {
-                    controller: 'flatpickr'
-                  }
-                } do |f| %>
-                  <div class="flex-grow-1 bd-highlight d-flex mx-auto ">
-                    <%= f.input :start_date,
-                    as: :string,
-                    label: "Date de début",
-                    required: true,
-                    input_html: {
-                      data:
-                      {
-                        flatpickr_target: 'startDateInput',
-                        dynamic_booking_price_target: 'startDateInput',
-                        action: 'change->dynamic-booking-price#update'
-                      }
-                    } %>
-                  </div>
-                  <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
-                    <%= f.input :end_date,
-                    as: :string,
-                    label: "Date de fin",
-                    required: true,
-                    input_html: {
-                      data: {
-                        flatpickr_target: 'endDateInput',
-                        dynamic_booking_price_target: 'endDateInput',
-                        action: 'change->dynamic-booking-price#update'
-                      }
-                    } %>
-                  </div>
-                  <div><%= f.input :number_of_guest, label: "Nombre d'hôtes", required: true %></div>
-                <div class=" mt-4 button-booking">
-                  <input type="submit" name="commit" value="Je réserve"  data-disable-with="Book it" class="sup-button-booking">
-                  <span></span>
-                </div>
-              </div>
+  <div class="more-info">
+    <p><i class="fa-solid fa-image"></i><%= link_to "  Voir toutes les photos", full_screen_path %></p>
+    <br>
+    <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
+  </div>
 
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Total</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
-                </div>
-              </div>
+  <!-- castle booking checkout-->
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-md-8 my-5">
 
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Frais de ménage</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p>7 €</p>
-                </div>
-              </div>
+        <h3>Plus d'informations...</h3>
 
-              <div class="d-flex justify-content-between bd-highlight">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Taxe de séjour</strong></p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p>2 €</p>
-                </div>
-              </div>
 
-              <div class="d-flex justify-content-between bd-highlight border-top">
-                <div class="p-2 bd-highlight">
-                  <p><strong>Total</strong> TTC</p>
-                </div>
-                <div class="p-2 bd-highlight">
-                  <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
-                </div>
-              </div>
+        <!-- card -->
+        <div class="card p-3 mt-4 rounded-3  ooking">
+          <% user = @castle.user.first_name %>
+          <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
+          <% if vowel.include?(user[0])  %>
+            <p><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+          <% else %>
+            <p><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+          <% end %>
+
+          <% if current_user != nil %>
+            <% if Favorite.where(user_id: current_user.id, castle_id: @castle.id).empty? %>
+              <%= link_to castle_favorites_path(@castle.id), data: {turbo_method: 'post'} do %>
+                <i class="fa-solid fa-heart" style="color: lightgrey"></i>
+              <% end %>
+            <% else %>
+              <%= link_to castle_favorite_path(@castle.id, Favorite.where(user_id: current_user.id, castle_id: @castle.id)[0].id), data: {turbo_method: 'delete'} do %>
+                <i class="fa-solid fa-heart" style="color: red"></i>
+              <% end %>
             <% end %>
-          </div>
+          <% end %>
 
+          <p><strong><%= @castle.description %></strong></p><br>
+        </div>
+
+        <div class="edit-destroy">
+            <% if policy(@castle).edit? %>
+          <a class="fa-solid fa-pen-to-square edit">
+              <%= link_to "Edit this castle", edit_castle_path(@castle) %>
+            <% end %>
+          </a>
+          <br>
+          <div class="destroy-icon">
+            <%= button_to "Destroy this castle", @castle, method: :delete if policy(@castle).destroy? %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 ">
+        <!-- checkout -->
+        <div class="card p-3 mt-1  container-booking">
+
+          <!-- make this a full length button -->
+          <div class="row ">
+            <div class="d-flex justify-content-between bd-highlight mt-2">
+              <div class="bd-highlight">
+                <p><strong><%= @castle.price_per_day %> €</strong> /jour</p>
+              </div>
+            </div>
+
+            <div class="all checkout" data-controller="dynamic-booking-price"
+                      data-dynamic-booking-price-night-value="<%= @castle.price_per_day %>">
+                <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
+
+                  <%= simple_form_for [@castle, @booking],
+                  html: {
+                    data: {
+                      controller: 'flatpickr'
+                    }
+                  } do |f| %>
+                    <div class="flex-grow-1 bd-highlight d-flex mx-auto ">
+                      <%= f.input :start_date,
+                      as: :string,
+                      label: "Date de début",
+                      required: true,
+                      input_html: {
+                        data:
+                        {
+                          flatpickr_target: 'startDateInput',
+                          dynamic_booking_price_target: 'startDateInput',
+                          action: 'change->dynamic-booking-price#update'
+                        }
+                      } %>
+                    </div>
+                    <div class="flex-shrink-1 bd-highlight border-left d-flex mx-auto">
+                      <%= f.input :end_date,
+                      as: :string,
+                      label: "Date de fin",
+                      required: true,
+                      input_html: {
+                        data: {
+                          flatpickr_target: 'endDateInput',
+                          dynamic_booking_price_target: 'endDateInput',
+                          action: 'change->dynamic-booking-price#update'
+                        }
+                      } %>
+                    </div>
+                    <div><%= f.input :number_of_guest, label: "Nombre d'hôtes", required: true %></div>
+                  <div class=" mt-4 button-booking">
+                    <input type="submit" name="commit" value="Je réserve"  data-disable-with="Book it" class="sup-button-booking">
+                    <span></span>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between bd-highlight">
+                  <div class="p-2 bd-highlight">
+                    <p><strong>Total</strong></p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p> <span data-dynamic-booking-price-target="priceHolder"></span> €</p>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between bd-highlight">
+                  <div class="p-2 bd-highlight">
+                    <p><strong>Frais de ménage</strong></p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p>50 €</p>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between bd-highlight">
+                  <div class="p-2 bd-highlight">
+                    <p><strong>Taxe de séjour</strong></p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p>2 €</p>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between bd-highlight border-top">
+                  <div class="p-2 bd-highlight">
+                    <p><strong>Total</strong> TTC</p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <p><strong><span data-dynamic-booking-price-target="totalPriceHolder"></span> €</strong></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Bootstrap JavaScript library -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Bootstrap JavaScript library -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<br>
+  <br>
+<% end %>
