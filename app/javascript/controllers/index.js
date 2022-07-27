@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import TimeoutController from "./timeout_controller.js"
 application.register("timeout", TimeoutController)
+
+import FullscreenController from "./fullscreen_controller.js"
+application.register("fullscreen", FullscreenController)

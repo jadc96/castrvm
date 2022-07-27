@@ -1,0 +1,21 @@
+<div class="total" id="qqch" data-controller="fullscreen">
+  <div class="gallery">
+    <% i = 0 %>
+
+    <% @castle.photos.each do |p| %>
+
+      <div class="small-picture" data-action="click->fullscreen#setBackground">
+        <%= cl_image_tag p.key, height: 50, width: 50, crop: :fill, id: "img#{i}", class: "#{p.url}" %>
+        <p class="key-for-js" data-fullscreen-target="url<%= i %>"><%= p.url %></p>
+        <% i += 1 %>
+      </div>
+
+    <% end %>
+
+    <p class="key-for-js"><%= i %></p>
+  </div>
+
+  <div class="full-screen-img">
+    <img data-fullscreen-target="img" src="<%= @castle.photos.first.url %>" alt="">
+  </div>
+</div>

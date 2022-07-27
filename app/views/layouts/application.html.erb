@@ -21,22 +21,25 @@
   </head>
 
   <body>
-    <% if action_name != "home" %>
+    <% if action_name != "home" && action_name != "full_screen" %>
       <%= render "shared/navbar" %>
     <% end %>
     <% if action_name == "home" %>
       <%= render "shared/home-banner" %>
     <% end %>
+    <% if action_name == "full_screen" %>
+      <%= render "shared/fullscreen" %>
+    <% end %>
     <% if action_name == "index" %>
       <%= render "shared/icons-banner" %>
     <% end %>
-    <% if action_name != "home" %>
+    <% if action_name != "home" && action_name != "full_screen" %>
       <div class="container">
         <%= render "shared/flashes" %>
         <%= yield %>
       </div>
     <% end %>
-    <% if action_name != "home" %>
+    <% if action_name != "home" && action_name != "full_screen" %>
       <%= render "shared/footer" %>
     <% end %>
   </body>
