@@ -64,11 +64,17 @@ outline: none;
 //////////////////////////
 
 .carousel {
-  height: 350px;
+  height: 450px;
 }
 
-#non-fs-carousel-inner {
-  height: 350px;
+.carousel-inner {
+  height: 450px;
+}
+
+.div-img {
+  height: 450px;
+  background-position: center;
+  background-size: cover;
 }
 
 .container-booking{
@@ -145,10 +151,4 @@ outline: none;
   width: 100%;
     }
   }
-}
-
-.carousel-item #non-fs-img {
-  width: auto;
-  min-height: 350px;
-  max-height: 350px;
 }

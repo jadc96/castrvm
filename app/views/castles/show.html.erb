@@ -1,7 +1,4 @@
-<div class="secondary-button mt-3 mb-0">
-    <%= link_to "Retour", castles_path %>
-</div>
-
+<br>
 <!-- castle title and photos -->
 <div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
   <div class="card-body d-block mx-auto py-0">
@@ -15,14 +12,14 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-    <div id="non-fs-carousel-inner">
+    <div class="carousel-inner">
       <% @castle.photos.each_with_index do |photo, i|  %>
         <% if i == 0 %>
           <div class="carousel-item active">
         <% else %>
           <div class="carousel-item">
         <% end %>
-            <div class="cover center w-100"><%= cl_image_tag photo.key, id: "non-fs-img" %></div>
+            <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
           </div>
       <% end %>
     </div>
@@ -38,7 +35,7 @@
   </div>
 </div>
 
-<%= link_to "Voir en grand écran", full_screen_path %>
+<%= link_to "Voir toutes les photos", full_screen_path %>
 
 <!-- castle booking checkout-->
 <div class="container p-3">
@@ -71,8 +68,8 @@
               <i class="fa-solid fa-heart" style="color: lightgrey"></i>
             <% end %>
           <% else %>
-            <%= link_to castle_favorite_path(@castle.id, @favorite[0].id), data: {turbo_method: 'delete'} do %>
-              <i class="fa-solid fa-heart" style="color: #831007"></i>
+            <%= link_to castle_favorite_path(@castle.id, Favorite.where(user_id: current_user.id, castle_id: @castle.id)[0].id), data: {turbo_method: 'delete'} do %>
+              <i class="fa-solid fa-heart" style="color: red"></i>
             <% end %>
           <% end %>
         <% end %>
