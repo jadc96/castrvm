@@ -121,6 +121,43 @@
           </div>
         </div>
 
+        <% if !@castle.reviews.empty? %>
+          <div class="reviews">
+            <% @castle.reviews.each do |r| %>
+              <div class="review">
+                <p>Commentaire laissé par <strong><%= User.where(id: r.user_id).first.first_name %> <%= User.where(id: r.user_id).first.last_name[0].capitalize %></strong> le <%= r.created_at.strftime('%d/%m/%Y') %> à <%= r.created_at.strftime('%H:%M:%S') %></p>
+                <% if r.rating == 0 %>
+                  <p>Note : <em>aucune étoile</em></p>
+                <% elsif r.rating == 1 %>
+                  <p>Note : <i class="fa-solid fa-star"></i></p>
+                <% elsif r.rating == 2 %>
+                  <p>Note : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                <% elsif r.rating == 3 %>
+                  <p>Note : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                <% elsif r.rating == 4 %>
+                  <p>Note : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                <% else %>
+                  <p>Note : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                <% end %>
+                <hr>
+                <p><%= r.content %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="create-review">
+          <h3>Laissez un commentaire</h3>
+          <%= simple_form_for [@castle, @review] do |f| %>
+            <%= f.input :content, label: false, label: "Votre commentaire" %>
+            <%= f.input :rating, collection: 0..5, label: "Note"  %>
+            <div class="create-castle-submit button-create">
+              <input type="submit" name="commit" value="Ajouter" class="btn btn-create" data-disable-with="Create">
+              <span></span>
+            </div>
+          <% end %>
+        </div>
+
       </div>
 
       <div class="col-md-4 ">

@@ -37,6 +37,7 @@ class CastlesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { castle: @castle })
         }]
     @booking = Booking.new
+    @review = Review.new
   end
 
   def full_screen

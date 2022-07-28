@@ -18,12 +18,11 @@
     text-align: center;
     margin: 15px;
   }
-
 }
 
 .create-castle-submit{
   background-color: #01607F;
-  margin: 0 auto;
+  margin: 10px auto;
   width:  130px;
   color: #ffff;
   border-radius: 30px;
@@ -48,16 +47,14 @@
   height: 50px;
   padding: 15px 0;
   text-align: center;
-  margin: 20px 10px;
+  margin: 20px auto;
   border-radius: 25px;
   font-weight: bold;
-  box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
   background: transparent;
-  color: #035F7F;
+  color: $bordeaux;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  margin-left: 27%;
 
   & .btn-create{
     z-index: 100;
@@ -69,20 +66,18 @@
     height: 100%;
     border-radius: 50px;
     background: transparent;
-    border: 1px solid #035F7F;
-    box-shadow: 6px 7px 11px 0px rgba(0,0,0,0.21);
-    color: #035F7F;
+    border: 1px solid $bordeaux;
+    color: $bordeaux;
     font-family: 'Lato', sans-serif;
     font-weight: bolder;
   }
 
   .btn-create:hover{
-  color: #e9bd5f;
+    color: white;
   }
 
-
   & span{
-    background: #035F7F;
+    background: $bordeaux;
     height: 100%;
     width: 0;
     border-radius: 25px;
@@ -100,8 +95,6 @@
 
     & span{
   width: 100%;
-
     }
-
   }
 }
