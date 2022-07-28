@@ -64,28 +64,47 @@
 
 
         <!-- card -->
-        <div class="card p-3 mt-4 rounded-3  ooking">
+        <div class="card px-5 py-4 mt-4 rounded-3">
           <% user = @castle.user.first_name %>
           <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
           <% if vowel.include?(user[0])  %>
-            <p><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+            <p class="first-line"><em><%= link_to "Voir toutes les annonces d'#{@castle.user.first_name}", user_index_path(@castle.user.id) %></em>
           <% else %>
-            <p><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em></p>
+            <p class="first-line"><em><%= link_to "Voir toutes les annonces de #{@castle.user.first_name}", user_index_path(@castle.user.id) %></em>
           <% end %>
 
           <% if current_user != nil %>
             <% if Favorite.where(user_id: current_user.id, castle_id: @castle.id).empty? %>
               <%= link_to castle_favorites_path(@castle.id), data: {turbo_method: 'post'} do %>
-                <i class="fa-solid fa-heart" style="color: lightgrey"></i>
+                Ajouter aux favoris <i class="fa-regular fa-heart" style="color: grey; font-size: 20px;"></i></p>
               <% end %>
             <% else %>
               <%= link_to castle_favorite_path(@castle.id, Favorite.where(user_id: current_user.id, castle_id: @castle.id)[0].id), data: {turbo_method: 'delete'} do %>
-                <i class="fa-solid fa-heart" style="color: red"></i>
+                Supprimer des favoris <i class="fa-solid fa-heart" style="color: red; font-size: 20px;"></i></p>
               <% end %>
             <% end %>
           <% end %>
 
-          <p><strong><%= @castle.description %></strong></p><br>
+          <p class="description"><%= @castle.description %></p><br>
+
+          <div class="equipment">
+            <% if @castle.smokers_welcome %>
+              <p><i class="fa-solid fa-smoking fa-details" style="color: green; font-size: 20px;"></i>fumeurs bienvenus</p>
+            <% else %>
+              <p><i class="fa-solid fa-smoking fa-details" style="color: red; font-size: 20px;"></i>interdit de fumer</p>
+            <% end %>
+            <% if @castle.animals_welcome %>
+              <p><i class="fa-solid fa-paw fa-details" style="color: green; font-size: 20px;"></i>animaux bienvenus</p>
+            <% else %>
+              <p><i class="fa-solid fa-paw fa-details" style="color: red; font-size: 20px;"></i>animaux interdits</p>
+            <% end %>
+            <% if @castle.wifi %>
+              <p><i class="fa-solid fa-wifi fa-details" style="color: green;"></i>wifi disponible</p>
+            <% else %>
+              <p><i class="fa-solid fa-wifi fa-details" style="color: red;"></i>wifi indisponible</p>
+            <% end %>
+            <p><i class="fa-solid fa-bed fa-details" style="color: green;"></i><%= @castle.number_of_bed %> lits disponibles</p>
+          </div>
         </div>
 
         <div class="edit-destroy">
