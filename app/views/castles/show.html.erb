@@ -86,6 +86,12 @@
           <% end %>
 
           <p><strong>Adresse : </strong><%= @castle.address %>, <%= @castle.department[5..50] %></p>
+          <% if @castle.indexed %>
+              <div class="indexed">
+                <h6>Classé Monument Historique</h6>
+                <img src="https://res.cloudinary.com/djyykxv2u/image/upload/v1659026036/castrvm/indexedMH_little_q2pngm.png" alt="">
+              </div>
+            <% end %>
 
           <p class="description"><%= @castle.description %></p><br>
 
@@ -172,9 +178,9 @@
               </div>
             </div>
 
-            <div class="all checkout" data-controller="dynamic-booking-price"
+            <div class="all checkout form-book" data-controller="dynamic-booking-price"
                       data-dynamic-booking-price-night-value="<%= @castle.price_per_day %>">
-                <div class="d-flex bd-highlight text-muted mx-auto w-75 px-auto justify-content-center">
+                <div class="fields-book-form d-flex text-muted justify-content-center">
 
                   <%= simple_form_for [@castle, @booking],
                   html: {
