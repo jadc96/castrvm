@@ -1,55 +1,104 @@
 <br>
 <p class="quit"><%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %>  <i class="fa-solid fa-right-from-bracket" style="color: #01607F"></i></p>
-<h1>Mes réservations</h1>
-<br>
 
-<div class="container-dashboard d-flex row m-10 card-radius">
-  <div class="col align-self-center row align-items-start">
+<% if params[:favorites] == "true"  %>
+
+  <div class="tabs">
+    <h1 class="tab"><%= link_to "Mes réservations", dashboard_path %></h1>
+    <h1 class="tab" style="background-color: rgb(243, 243, 243);"><%= link_to "Mes favoris", dashboard_path(favorites: true) %></h1>
+  </div>
+  <br>
+
+  <% current_user.favorites.each do |f| %>
+      <div class="row">
+        <div class="col-4">
+
+          <% castle = Castle.where(id: f.castle_id).first %>
+            <a href="<%= castle_path(castle.id)%>">
+              <div class="card-product">
+                <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+                <div class="card-product-infos">
+                  <% if castle.reviews.empty? %>
+                    <div class="rate">
+                      <h2><%= castle.name %></h2>
+                      <p>pas de note</p>
+                    </div>
+                  <% else %>
+                    <div class="rate">
+                      <% reviews = castle.reviews.map do |r| p r.rating end %>
+                      <h2 class="title-rate-card"><%= castle.name %></h2>
+                      <p><%= reviews.sum / reviews.length %> /5</p>
+                    </div>
+                  <% end %>
+                  <p><%= castle.department %></p>
+                  <p><%= castle.price_per_day %>€ / jour</p>
+                </div>
+
+              </div>
+            </a>
+
+      </div>
+
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div class="tabs">
+    <h1 class="tab" style="background-color: rgb(243, 243, 243);"><%= link_to "Mes réservations", dashboard_path %></h1>
+    <h1 class="tab"><%= link_to "Mes favoris", dashboard_path(favorites: true) %></h1>
+  </div>
+  <br>
+
+  <div class="container-dashboard d-flex row m-10 card-radius">
+    <div class="col align-self-center row align-items-start">
 
     <!-- pending bookings-->
 
-    <div class= "col status text-center">
-      <span id="alert-pending">EN ATTENTE...</span>
-      <% pending_bookings = Booking.where(user_id: current_user.id).where(status: "pending") %>
+      <div class= "col status text-center">
+        <span id="alert-pending">EN ATTENTE...</span>
+        <% pending_bookings = Booking.where(user_id: current_user.id).where(status: "pending") %>
 
-      <% if pending_bookings.empty? %>
-        <p class="no-booking">Vous n'avez pas de réservations en attente.</p>
-      <% else %>
-        <% Booking.where(user_id: current_user.id).where(status: "pending").each do |b| %></p>
-          <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
-            <%= cl_image_tag b.castle.photos.first.key %>
-            <div class="card-product-2-infos">
-              <h5><strong><%= link_to b.castle.name, booking_path(b) %></strong></h5>
-              <p> Prix par jour : <%= b.castle.price_per_day %> €</p>
-              <p> Prix total : <%= b.total_price %> €</p>
-              <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <!-- accepted bookings -->
-
-    <div class= "col status text-center">
-      <span id="alert-accepted"><i class="fa-solid fa-check"></i>   PAYÉES</span>
-      <% paid_bookings = Booking.where(user_id: current_user.id).where(status: "paid") %>
-      <% if paid_bookings.empty? %>
-        <p class="no-booking">Vous n'avez pas encore de réservation payée.</p>
-      <% else %>
-        <% Booking.where(user_id: current_user.id).where(status: "paid").each do |b| %></p>
-          <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
-            <%= cl_image_tag b.castle.photos.first.key %>
-            <div class="card-product-2-infos">
+        <% if pending_bookings.empty? %>
+          <p class="no-booking">Vous n'avez pas de réservations en attente.</p>
+        <% else %>
+          <% Booking.where(user_id: current_user.id).where(status: "pending").each do |b| %></p>
+            <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+              <%= cl_image_tag b.castle.photos.first.key %>
+              <div class="card-product-2-infos">
                 <h5><strong><%= link_to b.castle.name, booking_path(b) %></strong></h5>
                 <p> Prix par jour : <%= b.castle.price_per_day %> €</p>
                 <p> Prix total : <%= b.total_price %> €</p>
                 <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
+      <!-- accepted bookings -->
+
+      <div class= "col status text-center">
+        <span id="alert-accepted"><i class="fa-solid fa-check"></i>   PAYÉES</span>
+        <% paid_bookings = Booking.where(user_id: current_user.id).where(status: "paid") %>
+        <% if paid_bookings.empty? %>
+          <p class="no-booking">Vous n'avez pas encore de réservation payée.</p>
+        <% else %>
+          <% Booking.where(user_id: current_user.id).where(status: "paid").each do |b| %></p>
+            <div class="card-product-2 d-flex top-25 image-pending" style="height: 130px;">
+              <%= cl_image_tag b.castle.photos.first.key %>
+              <div class="card-product-2-infos">
+                  <h5><strong><%= link_to b.castle.name, booking_path(b) %></strong></h5>
+                  <p> Prix par jour : <%= b.castle.price_per_day %> €</p>
+                  <p> Prix total : <%= b.total_price %> €</p>
+                  <p> Dates : <%= b.start_date.strftime('%d/%m/%Y') %> - <%= b.end_date.strftime('%d/%m/%Y') %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
+
+<% end %>
