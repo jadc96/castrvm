@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboards#index"
 
   resources :castles, only: %i[index new show create edit update] do
-    resources :favorites, only: %i[index create update destroy]
+    resources :favorites, only: %i[create update destroy]
     resources :reviews, only: %i[create]
     resources :bookings, only: :create do
       resources :payments, only: :new

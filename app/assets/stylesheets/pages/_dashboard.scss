@@ -1,3 +1,16 @@
 .quit {
   text-align: right;
 }
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 10px 25px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.container-dashboard {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
