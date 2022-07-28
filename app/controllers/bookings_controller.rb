@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show destroy]
   before_action :set_castle, only: :create
+  skip_before_action :authenticate_user!, only: %i[create]
 
   def show
     authorize @booking
@@ -10,30 +11,44 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.castle_id = @castle.id
-    @booking.user_id = current_user.id
-    @booking.total_price = (@castle.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 20
-    authorize @booking
-
-    if @booking.save!
-      session = Stripe::Checkout::Session.create(
-        payment_method_types: ['card'],
-        line_items: [{
-          name: @castle.id,
-          amount: @booking.total_price * 100,
-          currency: 'eur',
-          quantity: 1
-        }],
-        success_url: booking_url(@booking),
-        cancel_url: booking_url(@booking)
-      )
-      @booking.update(checkout_session_id: session.id)
-      @booking.update(status: "pending")
-      redirect_to new_castle_booking_payment_path(@castle.id, @booking.id)
+    if user_signed_in? == false
+      @booking = Booking.new
+      authorize @booking
+      redirect_to new_user_session_path
     else
-      flash[:alert] = "Erreur, vérifiez les informations"
-      render :new, status: :unprocessable_entity
+      if booking_params[:start_date].empty? || booking_params[:end_date].empty? || booking_params[:number_of_guest].empty?
+        @booking = Booking.new
+        authorize @booking
+        redirect_to castle_path(@castle.id), data: {turbo_method: "get"}
+        flash.alert = "Toutes les champs doivent être remplis"
+      else
+        @booking = Booking.new(booking_params)
+        raise
+        @booking.castle_id = @castle.id
+        @booking.user_id = current_user.id
+        @booking.total_price = (@castle.price_per_day * ((Time.parse(@booking.end_date.to_s).to_i - Time.parse(@booking.start_date.to_s).to_i) / (60 * 60 * 24))) + 20
+        authorize @booking
+
+        if @booking.save!
+          session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            line_items: [{
+              name: @castle.id,
+              amount: @booking.total_price * 100,
+              currency: 'eur',
+              quantity: 1
+            }],
+            success_url: booking_url(@booking),
+            cancel_url: booking_url(@booking)
+          )
+          @booking.update(checkout_session_id: session.id)
+          @booking.update(status: "pending")
+          redirect_to new_castle_booking_payment_path(@castle.id, @booking.id)
+        else
+          flash[:alert] = "Erreur, vérifiez les informations"
+          render :new, status: :unprocessable_entity
+        end
+      end
     end
   end
 

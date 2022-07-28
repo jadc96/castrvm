@@ -35,7 +35,7 @@ class CastlesController < ApplicationController
         lat: @castle.latitude,
         lng: @castle.longitude,
         info_window: render_to_string(partial: "info_window", locals: { castle: @castle })
-      }]
+        }]
     @booking = Booking.new
   end
 
