@@ -76,70 +76,6 @@ outline: none;
 }
 
 
-//////////////////// "BOOK IT" BUTTON ///////////////////
-
-.shopping-btn{
-  width: 200px;
-  // height: 50px;
-  padding: 25px 0;
-  text-align: center;
-  margin: 20px auto;
-  border-radius: 25px;
-  font-weight: bold;
-  // border: 1px solid #035F7F;
-  background: transparent;
-  color: $bordeaux;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-
-  & .create-shopping{
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    padding: 12px;
-    border-radius: 50px;
-    background: transparent;
-    border: 1px solid $bordeaux;
-    color: $bordeaux;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-
-  }
-
-  .create-shopping:hover{
-    color: white;
-  }
-
-  & span{
-    background: $bordeaux;
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: 0.5s;
-    color: #ffff;
-    mix-blend-mode: darken;
-
-  }
-
-  &:hover{
-    border: none;
-
-    & span{
-  width: 100%;
-    }
-  }
-}
-
 /////////////////////// DESCRIPTION FRAME /////////////////////////
 
 .first-line {
@@ -148,13 +84,33 @@ outline: none;
   margin-bottom: 25px;;
 }
 
+.fa-heart {
+  margin-left: 5px;
+}
+
 .description {
-  margin-top: 10px;
   text-align: justify;
+  margin-top: 20px;
 }
 
 .fa-details {
   margin-right: 10px;
+}
+
+.indexed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+
+  h6 {
+    margin: 0;
+  }
+
+  img {
+    width: 25px;
+    margin-left: 10px;
+  }
 }
 
 
@@ -162,14 +118,14 @@ outline: none;
 
 .reviews {
   border: 1px solid rgba(0, 0, 0, 0.125);
-  padding: 20px 30px;
+  padding: 0 30px;
   margin-bottom: 50px;
 }
 
 .review {
   padding: 10px 15px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
-  margin: 10px;
+  margin: 30px 10px 30px 10px;
 
   p {
     margin-bottom: 5px;

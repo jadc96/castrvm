@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_122652) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_162805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,14 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_122652) do
     t.float "longitude"
     t.text "description"
     t.string "department"
-    t.integer "number_of_room"
     t.integer "number_of_bed"
     t.boolean "smokers_welcome"
     t.boolean "animals_welcome"
     t.boolean "wifi"
     t.string "address"
     t.string "subtitle"
-    t.string "style"
     t.boolean "indexed"
     t.index ["user_id"], name: "index_castles_on_user_id"
   end
