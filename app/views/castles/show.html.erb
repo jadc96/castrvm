@@ -85,6 +85,8 @@
             <% end %>
           <% end %>
 
+          <p><strong>Adresse : </strong><%= @castle.address %>, <%= @castle.department[5..50] %></p>
+
           <p class="description"><%= @castle.description %></p><br>
 
           <div class="equipment">
@@ -147,7 +149,6 @@
                       <%= f.input :start_date,
                       as: :string,
                       label: "Date de début",
-                      required: true,
                       input_html: {
                         data:
                         {
@@ -161,7 +162,6 @@
                       <%= f.input :end_date,
                       as: :string,
                       label: "Date de fin",
-                      required: true,
                       input_html: {
                         data: {
                           flatpickr_target: 'endDateInput',
@@ -170,7 +170,7 @@
                         }
                       } %>
                     </div>
-                    <div><%= f.input :number_of_guest, label: "Nombre d'hôtes", required: true %></div>
+                    <div><%= f.input :number_of_guest, label: "Nombre d'hôtes" %></div>
                   <div class=" mt-4 button-booking">
                     <input type="submit" name="commit" value="Je réserve"  data-disable-with="Book it" class="sup-button-booking">
                     <span></span>
