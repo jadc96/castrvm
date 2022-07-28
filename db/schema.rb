@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_26_101737) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_122652) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,8 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101737) do
     t.boolean "smokers_welcome"
     t.boolean "animals_welcome"
     t.boolean "wifi"
-    t.text "review"
-    t.integer "rating"
     t.string "address"
     t.string "subtitle"
     t.string "style"
@@ -88,6 +86,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101737) do
     t.datetime "updated_at", null: false
     t.index ["castle_id"], name: "index_favorites_on_castle_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "castle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["castle_id"], name: "index_reviews_on_castle_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,4 +120,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_101737) do
   add_foreign_key "castles", "users"
   add_foreign_key "favorites", "castles"
   add_foreign_key "favorites", "users"
+  add_foreign_key "reviews", "castles"
+  add_foreign_key "reviews", "users"
 end

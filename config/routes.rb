@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   resources :castles, only: %i[index new show create edit update] do
     resources :favorites, only: %i[index create update destroy]
+    resources :reviews, only: %i[create]
     resources :bookings, only: :create do
       resources :payments, only: :new
     end
   end
 
+  resources :reviews, only: %i[edit update destroy]
   resources :castles, only: :destroy
   resources :bookings, only: %i[show destroy]
 
