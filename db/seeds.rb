@@ -91,7 +91,6 @@ castle_one = Castle.new(
   price_per_day: 1500,
   name: "Combourg",
   subtitle: "Un château au cœur des lettres françaises",
-  style: "Château fort",
   department: "35 - Ille-et-Vilaine",
   address: "23 Rue des Princes, 35270 Combourg",
   user_id: 1,
@@ -113,7 +112,6 @@ castle_two = Castle.new(
   price_per_day: 1800,
   name: "Abbadia",
   subtitle: "La surprenante thébaïde d'un grand voyageur",
-  style: "éclectique",
   department: "64 - Pyrénées-Atlantiques",
   address: "Rte de la Corniche, 64700 Hendaye",
   user_id: 1,
@@ -123,10 +121,12 @@ castle_two = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_two.photos.attach([file1, file2, file3])
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029742/castrvm/Abbadia-2021-2-2_to0b0l.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029752/castrvm/Abbadia_-_Nord_wp6hwu.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029754/castrvm/qtZoXCWzemHovSFdrHcu0mSJEoI_xgvy3w.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029762/castrvm/interieur-chateau-observatoire-abbadia-hendaye_gxceqp.jpg"), filename: "castle", content_type: "image/jpg" }
+file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029767/castrvm/14_sdxlel.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_two.photos.attach([file1, file2, file3, file4, file5])
 castle_two.save!
 puts 'ok'
 
@@ -135,7 +135,6 @@ castle_three = Castle.new(
   price_per_day: 1000,
   name: "Beynac",
   subtitle: "Un balcon sur la Dordogne",
-  style: "Château médiéval",
   department: "24 - Dordogne",
   address: "Route du château, 24220 Beynac-et-Cazenac",
   user_id: 2,
@@ -145,10 +144,11 @@ castle_three = Castle.new(
   wifi: false,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_three.photos.attach([file1, file2, file3])
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029332/castrvm/Beynac_plaquette_ciel_sansnuage-copie_tocrp8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029341/castrvm/Ch%C3%A2teau_de_Beynac__Dordogne_e2ut3h.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029417/castrvm/le-chateau-de-beynac-vue-2_ljst9m.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029518/castrvm/chateau-beynac-1102057_pymdcn.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_three.photos.attach([file1, file2, file3, file4])
 castle_three.save!
 puts 'ok'
 
@@ -157,7 +157,6 @@ castle_four = Castle.new(
   price_per_day: 800,
   name: "Bonaguil",
   subtitle: "La dernière forteresse féodale",
-  style: "Château fort",
   department: "47 - Lot-et-Garonne",
   address: "47500 Saint-Front-sur-Lémance",
   user_id: 3,
@@ -167,10 +166,11 @@ castle_four = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_four.photos.attach([file1, file2, file3])
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030010/castrvm/jerome_morel_-_bonaguil_nfgabw.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030036/castrvm/273271214_10158670443060737_1696220543563524887_n_dd5cag.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030038/castrvm/bonaguil--1-_azqma2.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030043/castrvm/interieur-bonaguil_wgygqf.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_four.photos.attach([file1, file2, file3, file4])
 castle_four.save!
 puts 'ok'
 
@@ -179,7 +179,6 @@ castle_five = Castle.new(
   price_per_day: 3500,
   name: "Bazoches",
   subtitle: "Une forteresse qui en vit naître beaucoup d'autres",
-  style: "Gothique et classique",
   department: "58 - Nièvre",
   address: "58190 Château de Bazoches",
   user_id: 4,
@@ -189,10 +188,13 @@ castle_five = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_five.photos.attach([file1, file2, file3])
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030266/castrvm/Bazoches-ch%C3%A2teau-1_jnwr4b.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030270/castrvm/vue-aerienne-chateau-de-bazoches-copyright_zipoe2.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030277/castrvm/chateau-de-bazoches_i3jk56.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030287/castrvm/2000004517749_lblat1.webp"), filename: "castle", content_type: "image/jpg" }
+file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030297/castrvm/25016484138_0d4380176a_b_gmusrv.jpg"), filename: "castle", content_type: "image/jpg" }
+file6 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030303/castrvm/ec992689062999054ac2f656eab11ca3-alain_doire__bourgogne-franche-comte_tourisme-bfc_0012668a4-890x0-6ef846609f5ffe818695c2f6aa6ab987_thurls.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_five.photos.attach([file1, file2, file3, file4, file5, file6])
 castle_five.save!
 puts 'ok'
 
@@ -201,7 +203,6 @@ castle_six = Castle.new(
   price_per_day: 1350,
   name: "Anjony",
   subtitle: "Le château de la discorde",
-  style: "Tour forte",
   department: "15 - Cantal",
   address: "6010 Le Bourg, 15310 Tournemire",
   user_id: 5,
@@ -211,10 +212,12 @@ castle_six = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_six.photos.attach([file1, file2, file3])
+file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030520/castrvm/det_15_-_Tournemire_xctwkb.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030530/castrvm/Anjony_1_nmndg8.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030542/castrvm/13398157-diaporama_xpmwjj.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030553/castrvm/b6ed60c9cabd5751e2116376c8b8cfd4_dpaab2.jpg"), filename: "castle", content_type: "image/jpg" }
+file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030668/castrvm/454812-551258_gov8r8.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_six.photos.attach([file1, file2, file3, file4, file5])
 castle_six.save!
 puts 'ok'
 

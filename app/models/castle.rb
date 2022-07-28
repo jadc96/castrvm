@@ -9,7 +9,6 @@ class Castle < ApplicationRecord
   validates :department, presence: true
   validates :price_per_day, presence: true
   validates :number_of_bed, presence: true
-  validates :number_of_room, presence: true
   validates :photos, presence: true
 
   has_many_attached :photos
