@@ -132,6 +132,33 @@ outline: none;
   }
 }
 
+.review-infos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.unverified {
+  width: 175px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  color: #748074;
+  background-color: #e4e4e4;
+  border-radius: 4px;
+}
+
+.verified {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  color: rgb(0, 97, 0);
+  background-color: rgb(198, 239, 206);
+  border-radius: 4px;
+}
+
 .fa-star {
   color: gold;
 }

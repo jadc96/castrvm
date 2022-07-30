@@ -1,5 +1,6 @@
 <div class="reservation">
-  <h1>Réservation n°<%= @booking.id %></h1>
+  <h1>Réservation du <%= @booking.created_at.strftime("%d/%m/%Y") %></h1>
+  <p>Ref: <%= @booking.reference %></p>
 
   <% if @booking.status == 'pending' %>
     <div class="pending-status"><p>EN ATTENTE</p></div>

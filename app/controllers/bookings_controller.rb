@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
         authorize @booking
 
         if @booking.save!
+          @booking.update(reference: generate_reference)
           session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             line_items: [{
@@ -82,5 +83,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def generate_reference
+    random_char = ('A'..'Z').to_a
+    reference = "#{Time.now.strftime("%d")}#{random_char.sample}#{random_char.sample}#{Time.now.strftime("%m")}#{random_char.sample}#{random_char.sample}#{Time.now.strftime("%Y")}-#{@booking.id}"
   end
 end

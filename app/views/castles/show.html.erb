@@ -131,7 +131,14 @@
           <div class="reviews">
             <% @castle.reviews.each do |r| %>
               <div class="review">
-                <p>Commentaire laissé par <strong><%= User.where(id: r.user_id).first.first_name %> <%= User.where(id: r.user_id).first.last_name[0].capitalize %></strong> le <%= r.created_at.strftime('%d/%m/%Y') %> à <%= r.created_at.strftime('%H:%M:%S') %></p>
+                <div class="review-infos">
+                  <p>Commentaire laissé par <strong><%= User.where(id: r.user_id).first.first_name %> <%= User.where(id: r.user_id).first.last_name[0].capitalize %></strong> le <%= r.created_at.strftime('%d/%m/%Y') %> à <%= r.created_at.strftime('%H:%M:%S') %></p>
+                  <% if r.reference.empty? %>
+                    <p class="unverified"><strong>réservation non vérifiée</strong></p>
+                  <% else %>
+                    <p class="verified"><strong>réservation vérifiée</strong></p>
+                  <% end %>
+                </div>
                 <% if r.rating == 0 %>
                   <p>Note : <em>aucune étoile</em></p>
                 <% elsif r.rating == 1 %>
@@ -161,7 +168,8 @@
         <div class="create-review">
           <h3>Laissez un commentaire</h3>
           <%= simple_form_for [@castle, @review] do |f| %>
-            <%= f.input :content, label: false, label: "Votre commentaire" %>
+            <%= f.input :reference, label: "Référence de votre location (votre commentaire apparaîtra comme validé)" %>
+            <%= f.input :content, label: "Votre commentaire" %>
             <%= f.input :rating, collection: 0..5, label: "Note"  %>
             <div class="create-castle-submit button-create">
               <input type="submit" name="commit" value="Ajouter" class="btn btn-create" data-disable-with="Create">
