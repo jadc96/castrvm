@@ -12,10 +12,26 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.user_id = current_user.id
     @review.castle_id = params[:castle_id]
-    if @review.save!
-      redirect_to castle_path(params[:castle_id])
+    if !params[:review][:reference].empty?
+      if Booking.where(reference: params[:review][:reference]).empty?
+        redirect_to castle_path(@review.castle), status: :unprocessable_entity
+        flash[:alert] = "La référence que vous avez rentrée ne correspond à aucune réservation."
+      elsif !Review.where(reference: params[:review][:reference]).empty?
+        redirect_to castle_path(@review.castle), status: :unprocessable_entity
+        flash[:alert] = "La référence de réservation que vous avez rentrée a déjà utilisée pour un commentaire sur ce lieu."
+      else
+        if @review.save!
+          redirect_to castle_path(params[:castle_id])
+        else
+          render :new, status: :unprocessable_entity
+        end
+      end
     else
-      render :new, status: :unprocessable_entity
+      if @review.save!
+        redirect_to castle_path(params[:castle_id])
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
@@ -47,6 +63,6 @@ class ReviewsController < ApplicationController
   end
 
   def params_review
-    params.require(:review).permit(:content, :rating, :user_id, :castle_id)
+    params.require(:review).permit(:content, :rating, :user_id, :castle_id, :reference)
   end
 end
