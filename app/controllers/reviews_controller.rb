@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
   def update
     authorize @review
     if @review.update(params_review)
-      redirect_to castle_path(@castle)
+      redirect_to castle_path(@review.castle_id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,8 +34,10 @@ class ReviewsController < ApplicationController
 
   def destroy
     authorize @review
+    castle = @review.castle
     @review.destroy
-    redirect_to castle_path(@castle), status: :see_other
+    redirect_to castle_path(castle), status: :see_other
+    flash[:alert] = "Commentaire supprimé"
   end
 
   private

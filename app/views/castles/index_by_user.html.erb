@@ -16,12 +16,21 @@
           <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
 
           <div class="card-product-infos">
-            <div class="card-product-infos-left mt-1">
-              <h2><%= castle.name %></h2>
+              <% if castle.reviews.empty? %>
+                <div class="rate">
+                  <h2><%= castle.name %></h2>
+                  <p>pas de note</p>
+                </div>
+              <% else %>
+                <div class="rate">
+                  <% reviews = castle.reviews.map do |r| p r.rating end %>
+                  <h2 class="title-rate-card"><%= castle.name %></h2>
+                  <p><%= reviews.sum / reviews.length %> /5 </p>
+                </div>
+              <% end %>
               <p><%= castle.department %></p>
-              <h2><%= castle.price_per_day %>€ / jour</h2>
+              <p><%= castle.price_per_day %>€ / jour</p>
             </div>
-          </div>
 
         </div>
 

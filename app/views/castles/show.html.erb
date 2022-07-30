@@ -147,6 +147,12 @@
                 <% end %>
                 <hr>
                 <p><%= r.content %></p>
+                <% if current_user.id == r.user_id %>
+                  <div class="edit">
+                    <%= link_to "Modifier votre commentaire", edit_review_path(r.id) %>
+                    <%= link_to "Supprimer commentaire", review_path(r.id), data: {turbo_method: "delete"} %>
+                  </div>
+                <% end %>
               </div>
             <% end %>
           </div>
