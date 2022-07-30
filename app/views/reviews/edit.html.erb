@@ -1,0 +1,10 @@
+<h1>Modifiez votre commentaire</h1>
+
+<%= simple_form_for [@castle, @review] do |f| %>
+  <%= f.input :content, label: false, label: "Votre commentaire" %>
+  <%= f.input :rating, collection: 0..5, label: "Note"  %>
+  <div class="create-castle-submit button-create">
+    <input type="submit" name="commit" value="Valider les changements" class="btn btn-create" data-disable-with="Create">
+    <span></span>
+  </div>
+<% end %>
