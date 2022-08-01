@@ -1,3 +1,16 @@
+//////////////////////// SHOW "BANNER" ///////////////////////
+
+.show-banner {
+  display: flex;
+}
+
+
+//////////////////////// CARD ///////////////////////////////
+
+.card {
+  border: none;
+}
+
 .card.p-3.mt-1{
   border-radius: 26px;
   background: #ffffff;
@@ -76,6 +89,19 @@ outline: none;
 }
 
 
+/////////////////////// LEFT BUTTONS //////////////////////////////
+
+.more-info {
+  width: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  i, a {
+    color: $bordeaux;
+  }
+}
+
+
 /////////////////////// DESCRIPTION FRAME /////////////////////////
 
 .first-line {
@@ -114,12 +140,50 @@ outline: none;
 }
 
 
+////////////////////////// EDIT - DESTROY ///////////////////////////////
+
+.btn-edit {
+  padding: 12px 17px;
+  border: 1px solid $bordeaux;
+  border-radius: 50rem;
+  margin: 20px;
+  background: transparent;
+  transition: .5s;
+
+  .fa-pen-to-square, .edit {
+    color: $bordeaux;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+.btn-edit:hover {
+  background-color: $bordeaux;
+
+  .fa-pen-to-square, .edit {
+    color: #ffff;
+  }
+}
+
+.edit {
+  margin-left: 5px;
+}
+
+.destroy {
+  margin: 0 5px 0 35px;
+  color: red;
+}
+
+.destroy:hover {
+  color: red;
+}
+
 ///////////////////////// REVIEWS /////////////////////////////////////
 
 .reviews {
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding: 0 30px;
-  margin-bottom: 50px;
+  margin: 20px 0 50px 0;
 }
 
 .review {

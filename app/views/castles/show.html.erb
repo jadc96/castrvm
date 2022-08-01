@@ -14,46 +14,51 @@
 
   <br>
   <!-- castle title and photos -->
-  <div class="card p-6 w-75 d-block mx-auto bg-transparent border-0">
-    <div class="card-body d-block mx-auto py-0">
+  <div class="card">
+    <div class="card-body">
       <h2 class="d-block mx-auto text-center my-0"><strong><%= @castle.name.capitalize %></strong></h2>
       <h4 class="text-muted d-block mx-auto text-center w-75 mb-4"><%= @castle.subtitle %></h4>
     </div>
-    <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+    <div class="show-banner">
+
+      <div class="more-info">
+        <p><i class="fa-solid fa-image"></i><%= link_to "  Voir toutes les photos", full_screen_path %></p>
+        <br>
+        <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
       </div>
 
-      <div class="carousel-inner">
-        <% @castle.photos.each_with_index do |photo, i|  %>
-          <% if i == 0 %>
-            <div class="carousel-item active">
-          <% else %>
-            <div class="carousel-item">
+      <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <% @castle.photos.each_with_index do |photo, i|  %>
+            <% if i == 0 %>
+              <div class="carousel-item active">
+            <% else %>
+              <div class="carousel-item">
+            <% end %>
+                <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
+              </div>
           <% end %>
-              <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
-            </div>
-        <% end %>
-      </div>
+        </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <div class="more-info">
-    <p><i class="fa-solid fa-image"></i><%= link_to "  Voir toutes les photos", full_screen_path %></p>
-    <br>
-    <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
-  </div>
 
   <!-- castle booking checkout-->
   <div class="container p-3">
@@ -117,14 +122,16 @@
 
         <div class="edit-destroy">
             <% if policy(@castle).edit? %>
-          <a class="fa-solid fa-pen-to-square edit">
-              <%= link_to "Edit this castle", edit_castle_path(@castle) %>
+              <button class="btn-edit">
+                <a class="fa-solid fa-pen-to-square">
+                <%= link_to "Modifiez l'annonce", edit_castle_path(@castle), class: "edit" %></a>
+              </button>
             <% end %>
           </a>
           <br>
-          <div class="destroy-icon">
-            <%= button_to "Destroy this castle", @castle, method: :delete if policy(@castle).destroy? %>
-          </div>
+          <% if policy(@castle).destroy? %>
+            <%= link_to "Supprimez l'annonce", @castle, method: :delete, class: "destroy" %></a>
+          <% end %>
         </div>
 
         <% if !@castle.reviews.empty? %>
