@@ -1,4 +1,4 @@
-class AddCoordinatesTocastles < ActiveRecord::Migration[7.0]
+class AddCoordinatesToCastles < ActiveRecord::Migration[7.0]
   def change
     add_column :castles, :latitude, :float
     add_column :castles, :longitude, :float
