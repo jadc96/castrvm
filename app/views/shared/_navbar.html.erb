@@ -11,11 +11,9 @@
         <p class="my-profile"><%= link_to "Mon profil", "/dashboard" %></p>
       </div>
     <% else %>
-      <li class="nav-item active">
-        <%= link_to new_user_session_path, class: "nav-link" do %>
-          <i class="fas fa-bars" style="margin-right: 10px"></i> <i class="fas fa-user-circle width-50" style="transform: scale(1.5,1.5);"></i>
-        <% end %>
-      </li>
+      <%= link_to new_user_session_path, class: "nav-link" do %>
+        <i class="fas fa-user-circle" style="transform: scale(1.5,1.5);"></i>
+      <% end %>
     <% end %>
   </div>
 </div>

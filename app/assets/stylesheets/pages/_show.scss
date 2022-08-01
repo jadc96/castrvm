@@ -1,15 +1,32 @@
-//////////////////////// SHOW "BANNER" ///////////////////////
-
 .show-banner {
+  position: relative;
   display: flex;
+  border: none;
+  height: 86.3vh;
 }
+
+
+//////////////////////// MORE INFO ///////////////////////
+
+.fa-map-location-dot {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.fa-image {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.fa-comment-dots {
+  font-size: 25px;
+  margin-right: 10px;
+  margin-bottom: 165px;
+}
+
 
 
 //////////////////////// CARD ///////////////////////////////
-
-.card {
-  border: none;
-}
 
 .card.p-3.mt-1{
   border-radius: 26px;
@@ -75,15 +92,20 @@ outline: none;
 ////////////////////////// CAROUSEL ////////////////////////////////
 
 .carousel {
-  height: 450px;
+  position: absolute;
+  height: calc(100vh - 78.14px);
+  width: 75%;
+  max-width: calc(100vw - 350px);
+  right: 0;
+  top: -24px;
 }
 
 .carousel-inner {
-  height: 450px;
+  height: calc(100vh - 78.14px);
 }
 
 .div-img {
-  height: 450px;
+  height: calc(100vh - 78.14px);
   background-position: center;
   background-size: cover;
 }
@@ -92,13 +114,27 @@ outline: none;
 /////////////////////// LEFT BUTTONS //////////////////////////////
 
 .more-info {
-  width: 200px;
-  margin-top: auto;
-  margin-bottom: auto;
+  min-width: 350px;
+  padding: 25px 30px;
+
+  h1 {
+    width: 290px;
+    margin-bottom: 25px;
+  }
+
+  h4 {
+    width: 290px;
+    margin-bottom: 100px;
+  }
 
   i, a {
     color: $bordeaux;
   }
+}
+
+.fa-circle-arrow-down {
+  color: $bordeaux;
+  font-size: 25px;
 }
 
 
