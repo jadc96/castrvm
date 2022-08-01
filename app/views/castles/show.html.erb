@@ -14,60 +14,57 @@
 
   <br>
   <!-- castle title and photos -->
-  <div class="big-card">
-    <div class="show-banner">
+  <div class="show-banner">
 
-      <div class="more-info">
-        <p><i class="fa-solid fa-image"></i><%= link_to "  Toutes les photos", full_screen_path %></p>
-        <br>
-        <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
-        <br>
-        <p><i class="fa-solid fa-comment-dots"></i><a href="#review">Laisser un commentaire</a></p>
-      </div>
-
-      <div class="carousel-and-title">
-        <h2 class="mx-auto text-center mt-0 mb-2"><strong><%= @castle.name.capitalize %></strong></h2>
-        <h4 class="text-muted mx-auto text-center w-75 mt-0 mb-4"><%= @castle.subtitle %></h4>
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-
-          <div class="carousel-inner">
-            <% @castle.photos.each_with_index do |photo, i|  %>
-              <% if i == 0 %>
-                <div class="carousel-item active">
-              <% else %>
-                <div class="carousel-item">
-              <% end %>
-                  <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
-                </div>
-            <% end %>
-          </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
+    <div class="more-info">
+      <h1><strong><%= @castle.name.capitalize %></strong></h1>
+      <h4 class="text-muted"><%= @castle.subtitle %></h4>
+      <p><i class="fa-solid fa-image"></i><%= link_to "  Toutes les photos", full_screen_path %></p>
+      <br>
+      <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
+      <br>
+      <p><i class="fa-solid fa-comment-dots"></i><a href="#review">Laisser un commentaire</a></p>
+      <a href="#description" class="fa-solid fa-circle-arrow-down"></a>
     </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <% @castle.photos.each_with_index do |photo, i|  %>
+          <% if i == 0 %>
+            <div class="carousel-item active">
+          <% else %>
+            <div class="carousel-item">
+          <% end %>
+              <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
+            </div>
+        <% end %>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
   </div>
 
 
   <!-- castle booking checkout-->
-  <div class="container p-3">
+  <div class="container p-3 mt-5">
     <div class="row">
       <div class="col-md-8 my-5">
 
-        <h3>Plus d'informations...</h3>
+        <h3 id="show-infos">Plus d'informations...</h3>
 
 
         <!-- card -->
@@ -100,7 +97,7 @@
               </div>
             <% end %>
 
-          <p class="description"><%= @castle.description %></p><br>
+          <p class="description" id="description"><%= @castle.description %></p><br>
 
           <div class="equipment">
             <% if @castle.smokers_welcome %>
