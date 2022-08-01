@@ -9,39 +9,44 @@
   </div>
   <br>
 
-  <% current_user.favorites.each do |f| %>
-      <div class="row">
+  <% if current_user.favorites.empty? %>
+    <h3>Vous n'avez pas de favoris</h3>
+  <% else %>
+    <div class="row">
+      <% current_user.favorites.each do |f| %>
         <div class="col-4">
 
           <% castle = Castle.where(id: f.castle_id).first %>
-            <a href="<%= castle_path(castle.id)%>">
-              <div class="card-product">
-                <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <a href="<%= castle_path(castle.id)%>">
+            <div class="card-product">
+              <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
 
-                <div class="card-product-infos">
-                  <% if castle.reviews.empty? %>
-                    <div class="rate">
-                      <h2><%= castle.name %></h2>
-                      <p>pas de note</p>
-                    </div>
-                  <% else %>
-                    <div class="rate">
-                      <% reviews = castle.reviews.map do |r| p r.rating end %>
-                      <h2 class="title-rate-card"><%= castle.name %></h2>
-                      <p><%= reviews.sum / reviews.length %> /5</p>
-                    </div>
-                  <% end %>
-                  <p><%= castle.department %></p>
-                  <p><%= castle.price_per_day %>€ / jour</p>
-                </div>
-
+              <div class="card-product-infos">
+                <% if castle.reviews.empty? %>
+                  <div class="rate">
+                    <h2><%= castle.name %></h2>
+                    <p>pas de note</p>
+                  </div>
+                <% else %>
+                  <div class="rate">
+                    <% reviews = castle.reviews.map do |r| p r.rating end %>
+                    <h2 class="title-rate-card"><%= castle.name %></h2>
+                    <p><%= reviews.sum / reviews.length %> /5</p>
+                  </div>
+                <% end %>
+                <p><%= castle.department %></p>
+                <p><%= castle.price_per_day %>€ / jour</p>
               </div>
-            </a>
 
-      </div>
+            </div>
+          </a>
+        </div>
 
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
+
+
 
 <% else %>
 
