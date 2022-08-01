@@ -15,12 +15,6 @@
   width: 40px;
 }
 
-.active {
-  text-align: center;
-  align-items: center;
-}
-
-
 .links {
   margin-right: 10px;
   display: flex;
@@ -28,4 +22,8 @@
 
 .my-profile {
   margin: 0 15px 0 0;
+}
+
+.nav-link {
+  color: $bordeaux
 }

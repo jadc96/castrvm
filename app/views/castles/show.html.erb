@@ -14,47 +14,49 @@
 
   <br>
   <!-- castle title and photos -->
-  <div class="card">
-    <div class="card-body">
-      <h2 class="d-block mx-auto text-center my-0"><strong><%= @castle.name.capitalize %></strong></h2>
-      <h4 class="text-muted d-block mx-auto text-center w-75 mb-4"><%= @castle.subtitle %></h4>
-    </div>
-
+  <div class="big-card">
     <div class="show-banner">
 
       <div class="more-info">
-        <p><i class="fa-solid fa-image"></i><%= link_to "  Voir toutes les photos", full_screen_path %></p>
+        <p><i class="fa-solid fa-image"></i><%= link_to "  Toutes les photos", full_screen_path %></p>
         <br>
         <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
+        <br>
+        <p><i class="fa-solid fa-comment-dots"></i><a href="#review">Laisser un commentaire</a></p>
       </div>
 
-      <div id="carouselExampleIndicators" class="carousel slide w-75 mx-auto" data-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+      <div class="carousel-and-title">
+        <h2 class="mx-auto text-center mt-0 mb-2"><strong><%= @castle.name.capitalize %></strong></h2>
+        <h4 class="text-muted mx-auto text-center w-75 mt-0 mb-4"><%= @castle.subtitle %></h4>
 
-        <div class="carousel-inner">
-          <% @castle.photos.each_with_index do |photo, i|  %>
-            <% if i == 0 %>
-              <div class="carousel-item active">
-            <% else %>
-              <div class="carousel-item">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <% @castle.photos.each_with_index do |photo, i|  %>
+              <% if i == 0 %>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
+              <% end %>
+                  <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
+                </div>
             <% end %>
-                <div class="div-img cover center w-100" style="background-image: url('<%= photo.url %>')"></div>
-              </div>
-          <% end %>
-        </div>
+          </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -172,7 +174,7 @@
           </div>
         <% end %>
 
-        <div class="create-review">
+        <div class="create-review" id="review">
           <h3>Laissez un commentaire</h3>
           <%= simple_form_for [@castle, @review] do |f| %>
             <%= f.input :reference, label: "Référence de votre location (votre commentaire apparaîtra comme validé)" %>

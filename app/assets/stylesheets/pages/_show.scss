@@ -4,11 +4,28 @@
   display: flex;
 }
 
+.fa-map-location-dot {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.fa-image {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.fa-comment-dots {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+
 
 //////////////////////// CARD ///////////////////////////////
 
-.card {
+.big-card {
   border: none;
+  height: 83vh;
 }
 
 .card.p-3.mt-1{
@@ -74,16 +91,22 @@ outline: none;
 
 ////////////////////////// CAROUSEL ////////////////////////////////
 
+.carousel-and-title {
+  width: 100%;
+}
+
 .carousel {
-  height: 450px;
+  height: 500px;
+  width: 75%;
+  margin: auto;
 }
 
 .carousel-inner {
-  height: 450px;
+  height: 500px;
 }
 
 .div-img {
-  height: 450px;
+  height: 500px;
   background-position: center;
   background-size: cover;
 }
@@ -92,7 +115,8 @@ outline: none;
 /////////////////////// LEFT BUTTONS //////////////////////////////
 
 .more-info {
-  width: 200px;
+  width: 232px;
+  padding-top: 65px;
   margin-top: auto;
   margin-bottom: auto;
 
