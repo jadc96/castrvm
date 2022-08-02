@@ -5,8 +5,31 @@
   height: 86.3vh;
 }
 
+/////////////////////// MORE INFO //////////////////////////////
 
-//////////////////////// MORE INFO ///////////////////////
+.more-info {
+  height: calc(100vh - 100px);
+  min-width: 350px;
+  padding: 20px 35px 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    width: 290px;
+    font-family: 'Cinzel';
+    font-size: 50px;
+    font-weight: 100;
+  }
+
+  h4 {
+    width: 290px;
+  }
+
+  i, a {
+    color: $bordeaux;
+  }
+}
 
 .fa-map-location-dot {
   font-size: 25px;
@@ -21,9 +44,13 @@
 .fa-comment-dots {
   font-size: 25px;
   margin-right: 10px;
-  margin-bottom: 165px;
+  // margin-bottom: 165px;
 }
 
+.fa-circle-arrow-down {
+  color: $bordeaux;
+  font-size: 25px;
+}
 
 
 //////////////////////// CARD ///////////////////////////////
@@ -111,33 +138,6 @@ outline: none;
 }
 
 
-/////////////////////// LEFT BUTTONS //////////////////////////////
-
-.more-info {
-  min-width: 350px;
-  padding: 25px 30px;
-
-  h1 {
-    width: 290px;
-    margin-bottom: 25px;
-  }
-
-  h4 {
-    width: 290px;
-    margin-bottom: 100px;
-  }
-
-  i, a {
-    color: $bordeaux;
-  }
-}
-
-.fa-circle-arrow-down {
-  color: $bordeaux;
-  font-size: 25px;
-}
-
-
 /////////////////////// DESCRIPTION FRAME /////////////////////////
 
 .first-line {
@@ -178,6 +178,10 @@ outline: none;
 
 ////////////////////////// EDIT - DESTROY ///////////////////////////////
 
+.edit-destroy {
+  margin-bottom: 20px;
+}
+
 .btn-edit {
   padding: 12px 17px;
   border: 1px solid $bordeaux;
@@ -206,7 +210,7 @@ outline: none;
 }
 
 .destroy {
-  margin: 0 5px 0 35px;
+  margin-left: 35px;
   color: red;
 }
 

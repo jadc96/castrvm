@@ -2,6 +2,14 @@
   text-align: right;
 }
 
+.quit:hover {
+  color: $bordeaux;
+}
+
+.fa-right-from-bracket {
+  margin-left: 5px;
+}
+
 .tabs {
   display: flex;
 }
@@ -9,8 +17,28 @@
 .tab {
   padding: 10px 25px;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  margin: 0;
 }
 
 .container-dashboard {
   border: 1px solid rgba(0, 0, 0, 0.125);
+  margin-left: 0px;
+}
+
+.fav-container {
+  margin-left: 0px;
+  padding: 10px 20px;
+}
+
+.fa-check {
+  margin-right: 3px;
+}
+
+#alert-pending {
+  color: rgb(197, 128, 0);
+  font-size: 20px;
+}
+#alert-accepted {
+  color: green;
+  font-size: 20px;
 }

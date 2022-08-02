@@ -28,5 +28,9 @@ h1, h2, h3, h4 {
 }
 
 a {
-  color: #01607F;
+  color: #040404;
+}
+
+a:hover {
+  color: $bordeaux;
 }

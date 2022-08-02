@@ -20,11 +20,24 @@
   display: flex;
 }
 
-.my-profile {
-  margin: 0 15px 0 0;
+.fa-user-circle {
+  font-size: 25px;
+  color: $bordeaux;
+  margin-right: 20px;
 }
 
-.nav-link {
+.fa-user-circle:hover {
   color: $bordeaux;
-  margin-right: 5px;
+}
+
+.my-profile {
+  margin: 0 15px 0 0;
+  border: none;
+  background-color: transparent;
+  padding: 10px 15px;
+  border-radius: 50px;
+}
+
+.my-profile:hover {
+  background-color: #e9e9e9;
 }

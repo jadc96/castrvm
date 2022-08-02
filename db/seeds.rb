@@ -51,9 +51,9 @@ User.create(
 )
 User.create(
   id: 6,
-  first_name: "Kevin",
-  last_name: "Machin",
-  email: "kevdev@gmail.com",
+  first_name: "Hubert",
+  last_name: "Bonisseur de La Bath",
+  email: "hubert@gmail.com",
   password: "123456",
 )
 User.create(
