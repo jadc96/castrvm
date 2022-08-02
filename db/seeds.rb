@@ -15,68 +15,79 @@ puts "DB cleaned"
 puts 'Creating users'
 
 User.create(
+  id: 1,
   first_name: "Sylvie",
   last_name: "Nolan",
   email: "sylvie.nolan@laposte.net",
   password: "sylviiie",
 )
 User.create(
+  id: 2,
   first_name: "Georges",
   last_name: "Bondel",
   email: "georges.bondel@yahoo.fr",
   password: "georgio",
 )
 User.create(
+  id: 3,
   first_name: "Caroline",
   last_name: "Dupont",
   email: "caroline.dpt@gmail.com",
   password: "azerty",
 )
 User.create(
+  id: 4,
   first_name: "Etienne",
   last_name: "Lemarchand",
   email: "etiennelmd@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 5,
   first_name: "Alexandre",
   last_name: "Duverneuil",
   email: "alexdvn@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 6,
   first_name: "Kevin",
   last_name: "Machin",
   email: "kevdev@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 7,
   first_name: "Jean-Michel",
   last_name: "Cantal",
   email: "jean-michel.cantal@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 8,
   first_name: "Emma",
   last_name: "Proust",
   email: "emmaproust@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 9,
   first_name: "Brigitte",
   last_name: "Durand",
   email: "bdurand@gmail.com",
   password: "123456",
 )
 User.create(
+  id: 10,
   first_name: "Elodie",
   last_name: "Roland",
   email: "elo@gmail.com",
   password: "123456",
 )
 User.create(
-  first_name: "ja",
-  last_name: "dc",
+  id: 11,
+  first_name: "Jacques-Antoine",
+  last_name: "de Cugnac",
   email: "ja.dc@gmail.com",
   password: "moviefinder",
 )
@@ -114,7 +125,7 @@ castle_two = Castle.new(
   subtitle: "La surprenante thébaïde d'un grand voyageur",
   department: "64 - Pyrénées-Atlantiques",
   address: "Rte de la Corniche, 64700 Hendaye",
-  user_id: 1,
+  user_id: 2,
   number_of_bed: 9,
   smokers_welcome: true,
   animals_welcome: true,
@@ -137,7 +148,7 @@ castle_three = Castle.new(
   subtitle: "Un balcon sur la Dordogne",
   department: "24 - Dordogne",
   address: "Route du château, 24220 Beynac-et-Cazenac",
-  user_id: 2,
+  user_id: 11,
   number_of_bed: 5,
   smokers_welcome: true,
   animals_welcome: true,
