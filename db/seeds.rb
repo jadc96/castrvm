@@ -86,8 +86,8 @@ User.create(
 )
 User.create(
   id: 11,
-  first_name: "ja",
-  last_name: "dc",
+  first_name: "Jacques-Antoine",
+  last_name: "de Cugnac",
   email: "ja.dc@gmail.com",
   password: "moviefinder",
 )
