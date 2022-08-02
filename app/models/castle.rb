@@ -4,6 +4,7 @@ class Castle < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
+  validates :subtitle, presence: true
   validates :description, presence: true
   validates :address, presence: true
   validates :department, presence: true

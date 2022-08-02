@@ -8,11 +8,11 @@
 
     <% if user_signed_in? %>
       <div class="links">
-        <p class="my-profile"><%= link_to "Mon profil", "/dashboard" %></p>
+        <button class="my-profile"><%= link_to "Mon profil", "/dashboard" %></button>
       </div>
     <% else %>
-      <%= link_to new_user_session_path, class: "nav-link" do %>
-        <i class="fas fa-user-circle" style="transform: scale(1.5,1.5);"></i>
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-user-circle"></i>
       <% end %>
     <% end %>
   </div>

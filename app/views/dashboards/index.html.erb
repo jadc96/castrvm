@@ -1,5 +1,5 @@
 <br>
-<p class="quit"><%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %>  <i class="fa-solid fa-right-from-bracket" style="color: #01607F"></i></p>
+<p class="quit"><%= link_to "Me déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %><i class="fa-solid fa-right-from-bracket"></i></p>
 
 <% if params[:favorites] == "true"  %>
 
@@ -7,12 +7,11 @@
     <h1 class="tab"><%= link_to "Mes réservations", dashboard_path %></h1>
     <h1 class="tab" style="background-color: rgb(243, 243, 243);"><%= link_to "Mes favoris", dashboard_path(favorites: true) %></h1>
   </div>
-  <br>
 
   <% if current_user.favorites.empty? %>
     <h3>Vous n'avez pas de favoris</h3>
   <% else %>
-    <div class="row">
+    <div class="row border fav-container">
       <% current_user.favorites.each do |f| %>
         <div class="col-4">
 
@@ -54,15 +53,14 @@
     <h1 class="tab" style="background-color: rgb(243, 243, 243);"><%= link_to "Mes réservations", dashboard_path %></h1>
     <h1 class="tab"><%= link_to "Mes favoris", dashboard_path(favorites: true) %></h1>
   </div>
-  <br>
 
-  <div class="container-dashboard d-flex row m-10 card-radius">
+  <div class="container-dashboard d-flex row card-radius">
     <div class="col align-self-center row align-items-start">
 
     <!-- pending bookings-->
 
       <div class= "col status text-center">
-        <span id="alert-pending">EN ATTENTE...</span>
+        <span class="pending-status mt-2">EN ATTENTE...</span>
         <% pending_bookings = Booking.where(user_id: current_user.id).where(status: "pending") %>
 
         <% if pending_bookings.empty? %>
@@ -85,7 +83,7 @@
       <!-- accepted bookings -->
 
       <div class= "col status text-center">
-        <span id="alert-accepted"><i class="fa-solid fa-check"></i>   PAYÉES</span>
+        <span class="accepted-status mt-2"><i class="fa-solid fa-check"></i>PAYÉES</span>
         <% paid_bookings = Booking.where(user_id: current_user.id).where(status: "paid") %>
         <% if paid_bookings.empty? %>
           <p class="no-booking">Vous n'avez pas encore de réservation payée.</p>

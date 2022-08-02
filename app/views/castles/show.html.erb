@@ -17,13 +17,17 @@
   <div class="show-banner">
 
     <div class="more-info">
-      <h1><strong><%= @castle.name.capitalize %></strong></h1>
-      <h4 class="text-muted"><%= @castle.subtitle %></h4>
-      <p><i class="fa-solid fa-image"></i><%= link_to "  Toutes les photos", full_screen_path %></p>
-      <br>
-      <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
-      <br>
-      <p><i class="fa-solid fa-comment-dots"></i><a href="#review">Laisser un commentaire</a></p>
+      <div>
+        <h1><strong><%= @castle.name.capitalize %></strong></h1>
+        <h4 class="text-muted"><%= @castle.subtitle %></h4>
+      </div>
+      <div>
+        <p><i class="fa-solid fa-image"></i><%= link_to "  Toutes les photos", full_screen_path %></p>
+        <br>
+        <p><i class="fa-solid fa-map-location-dot"></i><%= link_to "  Voir sur la carte", castle_path(@castle, map: true) %></p>
+        <br>
+        <p><i class="fa-solid fa-comment-dots"></i><a href="#review">Laisser un commentaire</a></p>
+      </div>
       <a href="#description" class="fa-solid fa-circle-arrow-down"></a>
     </div>
 
@@ -129,7 +133,7 @@
           </a>
           <br>
           <% if policy(@castle).destroy? %>
-            <%= link_to "Supprimez l'annonce", @castle, method: :delete, class: "destroy" %></a>
+            <%= link_to "Supprimez l'annonce", castle_path(@castle), data: {turbo_method: "delete"}, class: "destroy" %></a>
           <% end %>
         </div>
 
