@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index create]
 
   def new
     @review = Review.new
@@ -8,29 +8,35 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(params_review)
-    authorize @review
-    @review.user_id = current_user.id
-    @review.castle_id = params[:castle_id]
-    if !params[:review][:reference].empty?
-      if Booking.where(reference: params[:review][:reference]).empty?
-        redirect_to castle_path(@review.castle), status: :unprocessable_entity
-        flash[:alert] = "La référence que vous avez rentrée ne correspond à aucune réservation."
-      elsif !Review.where(reference: params[:review][:reference]).empty?
-        redirect_to castle_path(@review.castle), status: :unprocessable_entity
-        flash[:alert] = "La référence de réservation que vous avez rentrée a déjà utilisée pour un commentaire sur ce lieu."
+    if user_signed_in? == false
+      @review = Review.new(params_review)
+      authorize @review
+      redirect_to new_user_session_path
+    else
+      @review = Review.new(params_review)
+      authorize @review
+      @review.user_id = current_user.id
+      @review.castle_id = params[:castle_id]
+      if !params[:review][:reference].empty?
+        if Booking.where(reference: params[:review][:reference]).empty?
+          redirect_to castle_path(@review.castle), status: :unprocessable_entity
+          flash[:alert] = "La référence que vous avez rentrée ne correspond à aucune réservation."
+        elsif !Review.where(reference: params[:review][:reference]).empty?
+          redirect_to castle_path(@review.castle), status: :unprocessable_entity
+          flash[:alert] = "La référence de réservation que vous avez rentrée a déjà utilisée pour un commentaire sur ce lieu."
+        else
+          if @review.save!
+            redirect_to castle_path(params[:castle_id])
+          else
+            render :new, status: :unprocessable_entity
+          end
+        end
       else
         if @review.save!
           redirect_to castle_path(params[:castle_id])
         else
           render :new, status: :unprocessable_entity
         end
-      end
-    else
-      if @review.save!
-        redirect_to castle_path(params[:castle_id])
-      else
-        render :new, status: :unprocessable_entity
       end
     end
   end
