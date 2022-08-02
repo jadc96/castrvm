@@ -13,7 +13,6 @@ a{
   height: 320px;
   background: #F4F4F4;
   margin: 20px 0;
-  border-radius: 18px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   transition: 0.7s;
 }
@@ -26,7 +25,6 @@ a{
 .card-product > img {
   height: 230px;
   width: 100%;
-  border-radius: 18px 18px 0 0;
   object-fit: cover;
 }
 
