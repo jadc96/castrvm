@@ -72,7 +72,7 @@
 
 
         <!-- card -->
-        <div class="card px-5 py-4 mt-4 rounded-3">
+        <div class="card px-5 py-4 mt-4">
           <% user = @castle.user.first_name %>
           <% vowel = ['a','e','i','o','u','y','A','E','I','O','U','Y'] %>
           <% if vowel.include?(user[0])  %>
@@ -164,7 +164,7 @@
                 <% end %>
                 <hr>
                 <p><%= r.content %></p>
-                <% if current_user.id == r.user_id %>
+                <% if current_user != nil && current_user.id == r.user_id %>
                   <div class="edit">
                     <%= link_to "Modifier votre commentaire", edit_review_path(r.id) %>
                     <%= link_to "Supprimer commentaire", review_path(r.id), data: {turbo_method: "delete"} %>
