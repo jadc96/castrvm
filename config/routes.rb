@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: "pages#home"
+  get "/intro", to: "pages#intro"
 
   get "/dashboard", to: "dashboards#index"
 

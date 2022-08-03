@@ -1,0 +1,51 @@
+<div class="presentation">
+  <div class="linear-g">
+    <h1>Voyagez dans le temps</h1>
+    <p>Que vous préfériez la rusticité guerrière du Moyen-Age, le foisonnement décoratif de la Renaissance, ou encore le luxe et le raffinement à la française des XVIIe et XVIIIe siècles, Castrvm vous promet un mémorable voyage dans le temps.</p>
+    <%= link_to "Créez votre profil pour en profiter !", new_user_session_path, class: "create-profile" %>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Rechercher par nom, adresse ou département pour accéder aux résultats les plus pertinents</h2>
+  <div >
+    <form action="/castles" method="get">
+      <input type="text" name="search" placeholder='Votre recherche'/>
+      <button name="button" type="submit">Rechercher</button>
+    </form>
+  </div>
+
+  <h3>Derniers ajouts</h3>
+
+  <div class="row">
+    <% @castles.each do |castle| %>
+      <div class="col-4">
+
+        <a href="<%= castle_path(castle.id)%>">
+          <div class="card-product">
+            <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+            <div class="card-product-infos">
+              <% if castle.reviews.empty? %>
+                <div class="rate">
+                  <h2><%= castle.name %></h2>
+                  <p>pas de note</p>
+                </div>
+              <% else %>
+                <div class="rate">
+                  <% reviews = castle.reviews.map do |r| p r.rating end %>
+                  <h2 class="title-rate-card"><%= castle.name %></h2>
+                  <p><%= reviews.sum / reviews.length %> /5 </p>
+                </div>
+              <% end %>
+              <p><%= castle.department %></p>
+              <p><%= castle.price_per_day %>€ / jour</p>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+    <% end %>
+  </div>
+</div>

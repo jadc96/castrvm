@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: %i[home intro]
 
   def home
-    @castles = Castle.last(6).reverse
+  end
+
+  def intro
+    @castles = Castle.last(3).reverse
   end
 end

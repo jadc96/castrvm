@@ -1,0 +1,47 @@
+.linear-g {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  height: 474.75px;
+}
+
+.presentation {
+  background-image: url('https://res.cloudinary.com/djyykxv2u/image/upload/v1659518877/castrvm/dddddddddg_hbb06l.jpg');
+  position: relative;
+  height: 474.75px;
+  object-fit: cover;
+}
+
+.presentation img {
+  width: 100%;
+  height: auto;
+}
+
+.presentation h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: $bordeaux;
+  text-shadow: 0 0 4px grey;
+}
+
+.presentation p {
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+}
+
+.create-profile {
+  position: absolute;
+  background-color: $bordeaux;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 12px;
+  margin-left: 25px;
+  transition: .5s;
+  right: 100px;
+  bottom: 100px;
+}
+
+.create-profile:hover{
+  background-color: #bf1a0d;
+  color: #ffff;
+}

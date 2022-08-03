@@ -17,6 +17,7 @@
 @import "pages/payment-new";
 @import "pages/fullscreen";
 @import "pages/dashboard";
+@import "pages/intro";
 
 @function get-breakpoints($key: "md") {
   @return map-get($container-max-widths, $key);
