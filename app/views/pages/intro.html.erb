@@ -1,20 +1,43 @@
-<div class="presentation">
-  <div class="linear-g">
-    <h1>Voyagez dans le temps</h1>
-    <p>Que vous préfériez la rusticité guerrière du Moyen-Age, le foisonnement décoratif de la Renaissance, ou encore le luxe et le raffinement à la française des XVIIe et XVIIIe siècles, Castrvm vous promet un mémorable voyage dans le temps.</p>
-    <%= link_to "Créez votre profil pour en profiter !", new_user_session_path, class: "create-profile" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border d-flex justify-content-between">
+    <%= link_to castles_path, class: "navbar-brand" do %>
+      <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="links">
+        <button class="my-profile"><%= link_to "Mon profil", "/dashboard" %></button>
+      </div>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-user-circle"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
-<div class="container">
-  <h2>Rechercher par nom, adresse ou département pour accéder aux résultats les plus pertinents</h2>
-  <div >
-    <form action="/castles" method="get">
-      <input type="text" name="search" placeholder='Votre recherche'/>
-      <button name="button" type="submit">Rechercher</button>
-    </form>
+<div class="presentation">
+  <div class="linear-g">
+    <h1>Voyagez dans le temps</h1>
+    <p>Castrvm est l'unique plateforme dédiée à la location de châteaux.</p>
+    <p>Au rendez-vous :</p>
+    <ul>
+      <li><p>charme rustique du Moyen-Age</p></li>
+      <li><p>ornementations de la Renaissance</p></li>
+      <li><p>raffinement de la période classique</p></li>
+    </ul>
+    <%= link_to "Voir toutes nos annonces", castles_path, class: "create-profile" %>
   </div>
+</div>
 
+<div class="search-container">
+  <h2>Recherchez par nom, adresse ou département pour accéder aux résultats les plus pertinents</h2>
+  <form action="/castles" method="get">
+    <input type="text" name="search" placeholder='Votre recherche' class="search-field"/>
+    <button name="button" type="submit" class="search-btn">Rechercher</button>
+  </form>
+</div>
+
+<div class="last-container">
   <h3>Derniers ajouts</h3>
 
   <div class="row">
