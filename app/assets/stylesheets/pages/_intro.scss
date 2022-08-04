@@ -1,0 +1,91 @@
+.linear-g {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  height: 474.75px;
+}
+
+.presentation {
+  background-image: url('https://res.cloudinary.com/djyykxv2u/image/upload/v1659518877/castrvm/dddddddddg_hbb06l.jpg');
+  height: 474.75px;
+  object-fit: cover;
+}
+
+.presentation img {
+  width: 100%;
+  height: auto;
+}
+
+.presentation h1 {
+  font-size: 70px;
+  font-weight: bold;
+  color: rgb(238, 238, 238);
+  text-shadow: 0 0 4px grey;
+  padding: 10px 50px 0 80px;
+}
+
+.presentation-text {
+  margin-left: 80px;
+  margin-top: 150px;
+}
+
+.presentation p {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(238, 238, 238);
+  padding-left: 20px;
+  margin: 0;
+  text-shadow: 0 0 4px grey;
+}
+
+.presentation ul {
+  color: white;
+  list-style: none;
+}
+
+.create-profile {
+  background-color: $bordeaux;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 12px;
+  margin-left: 75%;
+  transition: .5s;
+}
+
+.create-profile:hover{
+  background-color: #bf1a0d;
+  color: #ffff;
+}
+
+.search-container {
+  margin-bottom: 30px;
+  height: 200px;
+  padding: 20px 50px;
+  background-color:  rgb(240, 240, 228);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  h2 {
+    font-weight: bold;
+  }
+}
+
+.search-field {
+  height: 44px;
+  width: 200px;
+  margin-right: -5px;
+  padding: 10px;
+  }
+
+.search-btn {
+  background-color: $bordeaux;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+}
+
+.last-container {
+  padding: 0 70px;
+}

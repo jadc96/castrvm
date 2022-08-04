@@ -1,0 +1,73 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border d-flex justify-content-between">
+    <%= link_to castles_path, class: "navbar-brand" do %>
+      <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="links">
+        <button class="my-profile"><%= link_to "Mon profil", "/dashboard" %></button>
+      </div>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-user-circle"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="presentation">
+  <div class="linear-g">
+    <h1>Voyagez dans le temps</h1>
+    <div class="presentation-text">
+      <p>Castrvm est l'unique plateforme dédiée à la location de châteaux.</p>
+      <br>
+      <p>Au rendez-vous : charme rustique du Moyen-Age, ornementations Renaissance, raffinement de la période classique...</p>
+      <br>
+    </div>
+    <%= link_to "Voir toutes nos annonces", castles_path, class: "create-profile" %>
+  </div>
+</div>
+
+<div class="search-container">
+  <h2>Recherchez par nom, adresse ou département pour accéder aux résultats les plus pertinents</h2>
+  <form action="/castles" method="get">
+    <input type="text" name="search" placeholder='Votre recherche' class="search-field"/>
+    <button name="button" type="submit" class="search-btn">Rechercher</button>
+  </form>
+</div>
+
+<div class="last-container">
+  <h3>Derniers ajouts</h3>
+
+  <div class="row">
+    <% @castles.each do |castle| %>
+      <div class="col-4">
+
+        <a href="<%= castle_path(castle.id)%>">
+          <div class="card-product">
+            <%= cl_image_tag castle.photos.first.key, height: 300, width: 400, crop: :fill %>
+
+            <div class="card-product-infos">
+              <% if castle.reviews.empty? %>
+                <div class="rate">
+                  <h2><%= castle.name %></h2>
+                  <p>pas de note</p>
+                </div>
+              <% else %>
+                <div class="rate">
+                  <% reviews = castle.reviews.map do |r| p r.rating end %>
+                  <h2 class="title-rate-card"><%= castle.name %></h2>
+                  <p><%= reviews.sum / reviews.length %> /5 </p>
+                </div>
+              <% end %>
+              <p><%= castle.department %></p>
+              <p><%= castle.price_per_day %>€ / jour</p>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+    <% end %>
+  </div>
+</div>
