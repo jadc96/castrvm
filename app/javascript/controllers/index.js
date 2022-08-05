@@ -16,14 +16,8 @@ application.register("flatpickr", FlatpickrController)
 import FullscreenController from "./fullscreen_controller.js"
 application.register("fullscreen", FullscreenController)
 
-import HelloController from "./hello_controller.js"
-application.register("hello", HelloController)
-
 import MapController from "./map_controller.js"
 application.register("map", MapController)
-
-import PaymentController from "./payment_controller.js"
-application.register("payment", PaymentController)
 
 import TimeoutController from "./timeout_controller.js"
 application.register("timeout", TimeoutController)
