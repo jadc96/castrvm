@@ -133,9 +133,17 @@
           </a>
           <br>
           <% if policy(@castle).destroy? %>
-            <%= link_to "Supprimez l'annonce", castle_path(@castle), data: {turbo_method: "delete"}, class: "destroy" %></a>
+            <%= link_to "Supprimez l'annonce", castle_path(@castle), data: {turbo_method: "delete"}, class: "destroy", onClick:'Confirm()' %></a>
           <% end %>
         </div>
+
+        <script language='javascript'>
+          function Confirm() {
+            if (confirm("Etes-vous sûr ?")) {
+              formulaire.submit();
+            }
+          }
+        </script>
 
         <% if !@castle.reviews.empty? %>
           <div class="reviews">

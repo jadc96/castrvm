@@ -1,11 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="timeout"
+// Connects to data-controller="payment"
 export default class extends Controller {
   connect() {
-    setTimeout(() => {
-      location.reload()
-    }, 5000);
+    // document.getElementById("pay").click();
   }
-
 }

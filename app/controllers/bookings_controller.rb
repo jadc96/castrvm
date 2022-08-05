@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
         if @booking.save!
           @booking.update(reference: generate_reference)
-          session = Stripe::Checkout::Session.create(
+          @session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             line_items: [{
               name: @castle.id,
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
             success_url: booking_url(@booking),
             cancel_url: booking_url(@booking)
           )
-          @booking.update(checkout_session_id: session.id)
+          @booking.update(checkout_session_id: @session.id)
           @booking.update(status: "pending")
           redirect_to new_castle_booking_payment_path(@castle.id, @booking.id)
         else

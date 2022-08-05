@@ -35,7 +35,7 @@
 
 <div class="booking-buttons">
   <% if @booking.status == "pending" %>
-    <div class="shopping-btn" id="pay">
+    <div class="shopping-btn" id="pay2">
       <a class="create-shopping" href="/castles/<%= @booking.castle.id %>/bookings/<%= @booking.id %>/payments/new">Payer maintenant</a>
       <span></span>
     </div>
@@ -52,7 +52,10 @@
   </div>
 </div>
 
-<br>
+<% if @booking.status == "pending" %>
+  <p class="stripe-msg text-muted"><small><em>Il est parfois nécessaire de recharger la page si le bouton ne redirige pas automatiquement sur la page de paiement.</em></small></p>
+<% end %>
+
 <% if @booking.status == "pending" %>
   <%= link_to booking_path, data: {turbo_method: "delete"} do %>
     <p class="text-center cancel-booking">Annuler cette réservation</p>
@@ -62,3 +65,14 @@
     <p class="text-center cancel-booking">Retirer cette réservation de la liste</p>
   <% end %></p>
 <% end %>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const paymentButton = document.getElementById('pay2');
+  paymentButton.addEventListener('click', () => {
+    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    stripe.redirectToCheckout({
+      sessionId: '<%= @session.id %>'
+    });
+  });
+</script>
