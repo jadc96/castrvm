@@ -1,7 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-let test = "test";
-
 export default class extends Controller {
 
   static targets = [ "img" ]
@@ -9,7 +7,6 @@ export default class extends Controller {
   connect() {
     document.getElementById("img0").click();
   }
-
 
   setBackground() {
     const images = document.querySelectorAll("img").forEach((img) => {
