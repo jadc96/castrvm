@@ -1,7 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border d-flex justify-content-between">
-    <%= link_to castles_path, class: "navbar-brand" do %>
-      <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
-    <% end %>
+<div class="navbar navbar-expand-sm navbar-light border">
+
+    <div class="nav-links">
+      <%= link_to intro_path, class: "navbar-brand" do %>
+        <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
+      <% end %>
+
+      <%= link_to "Toutes les annonces", castles_path %>
+    </div>
 
     <%= render "shared/searchbar" %>
 
