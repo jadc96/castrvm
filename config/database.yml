@@ -83,4 +83,4 @@ production:
   <<: *default
   database: castles_production
   username: castles
-  password: <%= ENV["CASTLES_FINDER_DATABASE_PASSWORD"] %>
+  password: <%= ENV["CASTLES_DATABASE_PASSWORD"] %>
