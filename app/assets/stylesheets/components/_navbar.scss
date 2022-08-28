@@ -1,4 +1,6 @@
-.navbar-lewagon {
+.navbar {
+  height: 80px;
+  display: flex;
   justify-content: space-between;
   background: #fffcf6;
   position: sticky;
@@ -7,11 +9,7 @@
   box-shadow: 0 0 20px rgb(168, 168, 168);
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand i {
+.navbar .navbar-brand i {
   width: 40px;
 }
 
