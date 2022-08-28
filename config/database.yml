@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: castles_finder_development
+  database: castles_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: castles_finder_test
+  database: castles_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: castles_finder_production
-  username: castles_finder
-  password: <%= ENV["castleS_FINDER_DATABASE_PASSWORD"] %>
+  database: castles_production
+  username: castles
+  password: <%= ENV["CASTLES_FINDER_DATABASE_PASSWORD"] %>
