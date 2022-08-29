@@ -84,3 +84,4 @@ production:
   database: castles_finder_production
   username: castles_finder
   password: <%= ENV["castleS_FINDER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
