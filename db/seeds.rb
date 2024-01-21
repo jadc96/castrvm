@@ -111,9 +111,9 @@ castle_one = Castle.new(
   wifi: false,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832466/castrvm/Chateau_de_Combourg_wf4ow8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832452/castrvm/det_HEMIS_0463390ok_fovw1p.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1658832291/castrvm/MjAxNTAyMjJiMWNmNWU5ZDAzZjcwNzE2NWY0NjhmNTY0ZjM3OTc_eylwfw.jpg"), filename: "castle", content_type: "image/jpg" }
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705773834/castrvm/oh51isjw70rbztr0npkz.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705773834/castrvm/rcoct1dwjfdoxsgxldmk.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705773834/castrvm/bhqoqwoetzzqiadv514u.jpg"), filename: "castle", content_type: "image/jpg" }
 castle_one.photos.attach([file1, file2, file3])
 castle_one.save!
 puts 'ok'
@@ -132,11 +132,11 @@ castle_two = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029742/castrvm/Abbadia-2021-2-2_to0b0l.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029752/castrvm/Abbadia_-_Nord_wp6hwu.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029754/castrvm/qtZoXCWzemHovSFdrHcu0mSJEoI_xgvy3w.jpg"), filename: "castle", content_type: "image/jpg" }
-file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029762/castrvm/interieur-chateau-observatoire-abbadia-hendaye_gxceqp.jpg"), filename: "castle", content_type: "image/jpg" }
-file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029767/castrvm/14_sdxlel.jpg"), filename: "castle", content_type: "image/jpg" }
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705837700/castrvm/dour1rnjzmsiyb12yrbp.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705837552/castrvm/uu0lwyhqy2vfnaxine31.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705837552/castrvm/kxisrcsqaxhrtq6cuoun.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705837551/castrvm/uttwtohermpjw66y8kg1.webp"), filename: "castle", content_type: "image/jpg" }
+file5 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705837766/castrvm/fn8us5wyf3bvhptuk6dx.webp"), filename: "castle", content_type: "image/jpg" }
 castle_two.photos.attach([file1, file2, file3, file4, file5])
 castle_two.save!
 puts 'ok'
@@ -155,10 +155,10 @@ castle_three = Castle.new(
   wifi: false,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029332/castrvm/Beynac_plaquette_ciel_sansnuage-copie_tocrp8.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029341/castrvm/Ch%C3%A2teau_de_Beynac__Dordogne_e2ut3h.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029417/castrvm/le-chateau-de-beynac-vue-2_ljst9m.jpg"), filename: "castle", content_type: "image/jpg" }
-file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659029518/castrvm/chateau-beynac-1102057_pymdcn.jpg"), filename: "castle", content_type: "image/jpg" }
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705841092/castrvm/x0se9xhfw2eccfsl48v8.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705841096/castrvm/tiiikcmvnzlybd2umzza.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705841091/castrvm/prhdbcsba36g2nznwnd8.jpg"), filename: "castle", content_type: "image/jpg" }
+file4 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705841091/castrvm/gyatbbp55y0lxpsyrhiv.webp"), filename: "castle", content_type: "image/jpg" }
 castle_three.photos.attach([file1, file2, file3, file4])
 castle_three.save!
 puts 'ok'
@@ -177,11 +177,10 @@ castle_four = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030010/castrvm/jerome_morel_-_bonaguil_nfgabw.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030036/castrvm/273271214_10158670443060737_1696220543563524887_n_dd5cag.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030038/castrvm/bonaguil--1-_azqma2.jpg"), filename: "castle", content_type: "image/jpg" }
-file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030043/castrvm/interieur-bonaguil_wgygqf.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_four.photos.attach([file1, file2, file3, file4])
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842909/castrvm/mdzsxtkwfo0bpbhpjz13.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842910/castrvm/o4geq0i6q0pt4jnhydgo.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842910/castrvm/lchhal0ncojn1ghm3idg.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_four.photos.attach([file1, file2, file3])
 castle_four.save!
 puts 'ok'
 
@@ -199,13 +198,10 @@ castle_five = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030266/castrvm/Bazoches-ch%C3%A2teau-1_jnwr4b.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030270/castrvm/vue-aerienne-chateau-de-bazoches-copyright_zipoe2.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030277/castrvm/chateau-de-bazoches_i3jk56.jpg"), filename: "castle", content_type: "image/jpg" }
-file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030287/castrvm/2000004517749_lblat1.webp"), filename: "castle", content_type: "image/jpg" }
-file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030297/castrvm/25016484138_0d4380176a_b_gmusrv.jpg"), filename: "castle", content_type: "image/jpg" }
-file6 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030303/castrvm/ec992689062999054ac2f656eab11ca3-alain_doire__bourgogne-franche-comte_tourisme-bfc_0012668a4-890x0-6ef846609f5ffe818695c2f6aa6ab987_thurls.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_five.photos.attach([file1, file2, file3, file4, file5, file6])
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842909/castrvm/gx1ssqduuujjcmkt1n9c.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842909/castrvm/mkqdz3g6tqwaj0oqmg11.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842909/castrvm/ukdhy7uttmgzziexajq9.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_five.photos.attach([file1, file2, file3])
 castle_five.save!
 puts 'ok'
 
@@ -223,12 +219,10 @@ castle_six = Castle.new(
   wifi: true,
   indexed: true
 )
-file1 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030520/castrvm/det_15_-_Tournemire_xctwkb.jpg"), filename: "castle", content_type: "image/jpg" }
-file2 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030530/castrvm/Anjony_1_nmndg8.jpg"), filename: "castle", content_type: "image/jpg" }
-file3 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030542/castrvm/13398157-diaporama_xpmwjj.jpg"), filename: "castle", content_type: "image/jpg" }
-file4 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030553/castrvm/b6ed60c9cabd5751e2116376c8b8cfd4_dpaab2.jpg"), filename: "castle", content_type: "image/jpg" }
-file5 = { io: URI.open("https://res.cloudinary.com/djyykxv2u/image/upload/v1659030668/castrvm/454812-551258_gov8r8.jpg"), filename: "castle", content_type: "image/jpg" }
-castle_six.photos.attach([file1, file2, file3, file4, file5])
+file1 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842908/castrvm/nghhs879luohprwfrsuo.jpg"), filename: "castle", content_type: "image/jpg" }
+file2 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842909/castrvm/nz2uu8victcxzbyyorja.jpg"), filename: "castle", content_type: "image/jpg" }
+file3 = { io: URI.open("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705842916/castrvm/ux6hyebmwyn1rpdwzvls.jpg"), filename: "castle", content_type: "image/jpg" }
+castle_six.photos.attach([file1, file2, file3])
 castle_six.save!
 puts 'ok'
 
