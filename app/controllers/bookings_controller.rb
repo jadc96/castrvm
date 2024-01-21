@@ -29,17 +29,26 @@ class BookingsController < ApplicationController
 
         if @booking.save!
           @booking.update(reference: generate_reference)
+
+          @product = Stripe::Product.create(name: @castle.id)
+
+          @price = Stripe::Price.create(
+            product: @product.id,
+            unit_amount: @booking.total_price * 100,
+            currency: 'eur',
+          )
+
           @session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             line_items: [{
-              name: @castle.id,
-              amount: @booking.total_price * 100,
-              currency: 'eur',
+              price: @price.id,
               quantity: 1
             }],
+            mode: 'payment',
             success_url: booking_url(@booking),
             cancel_url: booking_url(@booking)
           )
+
           @booking.update(checkout_session_id: @session.id)
           @booking.update(status: "pending")
           redirect_to new_castle_booking_payment_path(@castle.id, @booking.id)
