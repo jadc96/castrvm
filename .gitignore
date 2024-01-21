@@ -36,6 +36,7 @@
 /node_modules
 # Ignore .env file containing credentials.
 .env*
+app/javascript/controllers/config.js
 
 # Ignore Mac and Linux file system files
 *.swp
