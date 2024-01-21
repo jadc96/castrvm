@@ -1,5 +1,6 @@
 <div class="total" id="qqch" data-controller="fullscreen">
   <div class="gallery">
+    <p><%= link_to "Retour", castle_path(@castle.id) %></p>
     <% i = 0 %>
 
     <% @castle.photos.each do |p| %>

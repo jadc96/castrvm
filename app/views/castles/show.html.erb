@@ -40,6 +40,7 @@
 
       <div class="carousel-inner">
         <% @castle.photos.each_with_index do |photo, i|  %>
+          <% break if i >= 3 %>
           <% if i == 0 %>
             <div class="carousel-item active">
           <% else %>
