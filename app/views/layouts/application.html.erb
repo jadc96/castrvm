@@ -31,15 +31,22 @@
   </head>
 
   <body>
-    <% if action_name != "home" && action_name != "full_screen" && action_name != "intro" %>
+    <% if action_name != "home" && action_name != "full_screen" && !(action_name == "index" && controller_name == "castles") %>
       <%= render "shared/navbar" %>
     <% end %>
+
+    <% if action_name == "index" && controller_name == "castles" %>
+      <%= render "shared/navbar_castles" %>
+    <% end %>
+
     <% if action_name == "home" %>
       <%= render "shared/home-banner" %>
     <% end %>
+
     <% if action_name == "full_screen" %>
       <%= render "shared/fullscreen" %>
     <% end %>
+
     <% if action_name != "home" && action_name != "full_screen" && !(controller_name == "castles" && action_name == "show") && action_name != "intro" %>
       <div class="container">
         <%= render "shared/flashes" %>
@@ -49,6 +56,7 @@
         <%= render "shared/flashes" %>
         <%= yield %>
     <% end %>
+
     <% if action_name != "home" && action_name != "full_screen" %>
       <%= render "shared/footer" %>
     <% end %>

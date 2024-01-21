@@ -1,22 +1,3 @@
-<div class="navbar navbar-expand-sm navbar-light border">
-    <div class="nav-links">
-      <%= link_to castles_path, class: "navbar-brand" do %>
-        <img class="house" src="https://res.cloudinary.com/djyykxv2u/image/upload/v1658780308/castrvm/castrvm_gmx96c.png" alt="">
-      <% end %>
-    </div>
-
-    <% if user_signed_in? %>
-      <div class="links">
-        <button class="my-profile"><%= link_to "Mon profil", "/dashboard" %></button>
-      </div>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-        <i class="fas fa-user-circle"></i>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
 <div class="presentation">
   <div class="linear-g">
     <h1>Voyagez dans le temps</h1>

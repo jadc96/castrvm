@@ -1,0 +1,19 @@
+<div class="navbar navbar-expand-sm navbar-light border">
+    <div class="nav-links">
+      <%= link_to intro_path, class: "navbar-brand" do %>
+        <img class="house" src="https://res.cloudinary.com/dvz6du0ze/image/upload/v1705775826/castrvm/lmmu4o46qbbkbekuxexh.png" alt="">
+      <% end %>
+
+      <%= link_to "Accueil", intro_path %>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="links">
+        <button class="my-profile"><%= link_to "Mon profil", "/dashboard" %></button>
+      </div>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-user-circle"></i>
+      <% end %>
+    <% end %>
+</div>
