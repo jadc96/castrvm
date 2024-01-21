@@ -4,9 +4,10 @@
 }
 
 .presentation {
-  background-image: url('https://res.cloudinary.com/djyykxv2u/image/upload/v1659518877/castrvm/dddddddddg_hbb06l.jpg');
+  background-image: url("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705865620/castrvm/tir04liynvabfbkvvlro.jpg");
   height: 474.75px;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .presentation img {
@@ -15,21 +16,21 @@
 }
 
 .presentation h1 {
-  font-size: 70px;
+  font-family: "Tangerine", cursive;
+  font-size: 95px;
   font-weight: bold;
   color: rgb(238, 238, 238);
   text-shadow: 0 0 4px grey;
-  padding: 10px 50px 0 80px;
+  padding: 20px 50px 0 80px;
 }
 
 .presentation-text {
   margin-left: 80px;
-  margin-top: 150px;
+  margin-top: 163px;
 }
 
 .presentation p {
-  font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   color: rgb(238, 238, 238);
   padding-left: 20px;
   margin: 0;
@@ -48,10 +49,10 @@
   font-size: 17px;
   padding: 12px;
   margin-left: 75%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.create-profile:hover{
+.create-profile:hover {
   background-color: #bf1a0d;
   color: #ffff;
 }
@@ -60,7 +61,9 @@
   margin-bottom: 30px;
   height: 200px;
   padding: 20px 50px;
-  background-color:  rgb(240, 240, 228);
+  background-image: url("https://res.cloudinary.com/dvz6du0ze/image/upload/v1705879127/castrvm/dfykm6fxffybdbf2shnc.png");
+  background-repeat: repeat;
+  background-size: 18%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -76,7 +79,7 @@
   width: 200px;
   margin-right: -5px;
   padding: 10px;
-  }
+}
 
 .search-btn {
   background-color: $bordeaux;
