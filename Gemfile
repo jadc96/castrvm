@@ -53,7 +53,6 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "devise"
 gem "pundit"
-gem 'faker'
 gem "cloudinary"
 gem "geocoder"
 gem "stripe"
