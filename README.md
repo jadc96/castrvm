@@ -18,7 +18,7 @@ Page d'entrée sur le site
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/fc5de50005b08520de9eb69e71eb239339890156/app/assets/images/castrvm-home-screen.png">
-    <img src="app/assets/images/castrvm-home-screen.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/castrvm-home-screen.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -26,7 +26,7 @@ Accueil
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/accueil.png">
-    <img src="app/assets/images/accueil.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/accueil.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -36,7 +36,7 @@ Se connecter ou créer un compte pour accéder à toutes les fonctionnalités (d
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/connexion.png">
-    <img src="app/assets/images/connexion.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/connexion.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -46,15 +46,15 @@ Consulter la liste d'annonces
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/liste-annonces.png">
-    <img src="app/assets/images/liste-annonces.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/liste-annonces.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
-Consulter les annonces selon la répartition géographiques (geocoder)
+Consulter les annonces selon la répartition géographique (geocoder)
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/liste-carte.png">
-    <img src="app/assets/images/liste-carte.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/liste-carte.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -64,7 +64,7 @@ Remplir les champs obligatoires
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-publier.png">
-    <img src="app/assets/images/annonce-publier.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/annonce-publier.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -72,15 +72,15 @@ Autocomplétion pour le champ adresse (geocoder)
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-autocomplete.png">
-    <img src="app/assets/images/annonce-autocomplete.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/annonce-autocomplete.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
 Publier l'annonce...
 
 <div align="center">
-  <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-publier.png">
-    <img src="app/assets/images/annonce-publier.png" alt="Logo" width="800" height="auto">
+  <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-créer.png">
+    <img src="app/assets/images/annonce-créer.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -88,14 +88,13 @@ Publier l'annonce...
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-consulter.png">
-    <img src="app/assets/images/annonce-consulter.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/annonce-consulter.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
-  
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-description.png">
-    <img src="app/assets/images/annonce-description.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/annonce-description.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -103,7 +102,7 @@ Afficher toutes les photos
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/annonce-photos.png">
-    <img src="app/assets/images/annonce-photos.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/annonce-photos.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -113,7 +112,7 @@ Sélectionner les dates (flatpickr)
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/réserver-dates.png">
-    <img src="app/assets/images/réserver-dates.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/réserver-dates.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -121,7 +120,7 @@ Calcul automatique du prix et validation
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/réserver-valider.png">
-    <img src="app/assets/images/réserver-valider.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/réserver-valider.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -129,7 +128,7 @@ Affichage de la réservation
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/réserver-afficher.png">
-    <img src="app/assets/images/réserver-afficher.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/réserver-afficher.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -137,7 +136,7 @@ Paiement (stripe)
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/réserver-payer.png">
-    <img src="app/assets/images/réserver-payer.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/réserver-payer.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -145,7 +144,7 @@ Consulter toutes ses réservations, en attente ou passées
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/réservations-en-cours.png">
-    <img src="app/assets/images/réservations-en-cours.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/réservations-en-cours.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -153,7 +152,7 @@ Consulter toutes ses réservations, en attente ou passées
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/favoris.png">
-    <img src="app/assets/images/favoris.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/favoris.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
@@ -161,13 +160,15 @@ Consulter toutes ses réservations, en attente ou passées
 
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/commentaire-publier.png">
-    <img src="app/assets/images/commentaire-publier.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/commentaire-publier.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
+Commentaires vérifiés et non vérifiés (référence de réservation)
+
 <div align="center">
   <a href="https://github.com/jadc96/castrvm/blob/master/app/assets/images/commentaire-affichage.png">
-    <img src="app/assets/images/commentaire-affichage.png" alt="Logo" width="800" height="auto">
+    <img src="app/assets/images/commentaire-affichage.png" alt="Logo" width="1000" height="auto">
   </a>
 </div>
 
