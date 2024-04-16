@@ -9,7 +9,7 @@ rails new -j webpack APP_NAME
 Ensure you have Bootstrap and it's dependencies:
 
 ```bash
-yarn add bootstrap @popperjs/core
+npm install bootstrap @popperjs/core
 ```
 
 Ensure you have the following gems in your Rails `Gemfile`:
@@ -58,7 +58,7 @@ Import Bootstrap:
 
 ```js
 // app/javascript/packs/application.js
-import "bootstrap"
+import "bootstrap";
 ```
 
 ## Adding new `.scss` files
