@@ -1,5 +1,7 @@
-require 'dotenv'
-Dotenv.load
+if Rails.env.development? || Rails.env.test?
+  require 'dotenv'
+  Dotenv.load
+end
 
 Cloudinary.config do |config|
     config.cloud_name = ENV['CLOUDINARY_CLOUD_NAME']
