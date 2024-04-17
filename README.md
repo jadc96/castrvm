@@ -10,7 +10,7 @@
 
 Castrvm est une application web de location de châteaux.
 
-*En attente d'un déploiement prochain, découvrez les fonctionnalités de Castrvm.*
+Visiter le site : [https://castrvm-86180ef254e0.herokuapp.com/](https://castrvm-86180ef254e0.herokuapp.com/)
 
 ## Accueil
 
