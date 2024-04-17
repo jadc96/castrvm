@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import mapboxConfig from "./mapboxConfig";
+import mapboxConfig from "./config";
 
 // Connects to data-controller="address-autocomplete"
 export default class extends Controller {

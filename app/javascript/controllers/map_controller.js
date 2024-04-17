@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import mapboxConfig from "./mapboxConfig";
+import mapboxConfig from "./config";
 
 export default class extends Controller {
   static values = {
